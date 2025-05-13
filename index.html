@@ -9,6 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
+      <nav id="mobile-menu" style="display: none; position: fixed; top: 0; right: 0; width: 250px; height: 100%; background: #222; padding: 2rem; box-shadow: -2px 0 10px rgba(0,0,0,0.5); z-index: 999;">
+  <ul style="list-style: none; padding: 0;">
+    <li style="margin: 1rem 0;"><a href="#about" style="color: white;">About</a></li>
+    <li style="margin: 1rem 0;"><a href="#artist" style="color: white;">Artist</a></li>
+    <li style="margin: 1rem 0;"><a href="catalogue.html" style="color: white;">Catalogue</a></li>
+    <li style="margin: 1rem 0;"><a href="submit-demo.html" style="color: white;">Submit Demo</a></li>
+    <li style="margin: 1rem 0;"><a href="#contact" style="color: white;">Contact</a></li>
+  </ul>
+</nav>
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #111;
@@ -57,6 +66,16 @@
       font-size: 0.8rem;
       color: #aaa;
     }
+    <script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu.style.display === 'none' || menu.style.display === '') {
+      menu.style.display = 'block';
+    } else {
+      menu.style.display = 'none';
+    }
+  }
+</script>
   </style>
 </head>
 
