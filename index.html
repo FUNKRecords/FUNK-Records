@@ -118,6 +118,10 @@
       color: white;
       font-size: 18px;
     }
+
+    #mobile-menu a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -128,11 +132,11 @@
   <!-- Mobile Navigation Menu -->
   <nav id="mobile-menu">
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#artist">Artist</a></li>
-      <li><a href="catalogue.html">Catalogue</a></li>
-      <li><a href="submit-demo.html">Submit Demo</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#artist" onclick="closeMenu()">Artist</a></li>
+      <li><a href="catalogue.html" onclick="closeMenu()">Catalogue</a></li>
+      <li><a href="submit-demo.html" onclick="closeMenu()">Submit Demo</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
   </nav>
 
@@ -168,7 +172,7 @@
     <h2>Contact</h2>
     <p><strong>General Inquiries:</strong> xltrecordslebal@gmail.com</p>
     <p><strong>Licensing & Legal:</strong> xltrecordslebal@gmail.com</p>
-    <p><strong>Instagram:</strong> 
+    <p><strong>Instagram:</strong>
       <a href="https://www.instagram.com/bodo_otaku_" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
       </a>
@@ -193,6 +197,19 @@
       const menu = document.getElementById('mobile-menu');
       menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
     }
+
+    function closeMenu() {
+      document.getElementById('mobile-menu').style.display = 'none';
+    }
+
+    // Optional: Close menu on outside click (for better UX)
+    document.addEventListener('click', function (event) {
+      const menu = document.getElementById('mobile-menu');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.style.display = 'none';
+      }
+    });
   </script>
 </body>
 
