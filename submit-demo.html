@@ -52,18 +52,26 @@
   </style>
 </head>
 <body>
-  <section>
-    <h1>Submit Your Demo</h1>
-    <p>We’re open to hearing new, unique sounds that fit our vibe — chill, lo-fi, electronic, or experimental.</p>
-    <ul>
-      <li>Only submit private streaming links (SoundCloud, YouTube, Dropbox).</li>
-      <li>Do not send downloadable files or attachments.</li>
-      <li>Share a short message about you and your project.</li>
-      <li>Only submit unreleased or demo tracks.</li>
-    </ul>
-    <p>Email your demo: <strong>demosxltrecordslebal@gmail.com</strong></p>
-    <a href="index.html" class="btn">← Back to Home</a>
-  </section>
+  <section id="demo">
+  <h2>Submit Your Demo</h2>
+  <p>We’re open to hearing new, unique sounds that fit our vibe — chill, lo-fi, electronic, or experimental.</p>
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <label>Your Name</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Your Email</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Demo Link (SoundCloud, YouTube, Dropbox etc.)</label><br>
+    <input type="url" name="demo-link" required><br><br>
+
+    <label>Short Message (about you or the project)</label><br>
+    <textarea name="message" rows="4" required></textarea><br><br>
+
+    <button type="submit" class="btn">Send Demo</button>
+  </form>
+  <p><small>*We only accept private streaming links. No attachments.</small></p>
+</section>
   <footer>
     <p>&copy; 2025 X.L.T Records. All rights reserved.</p>
   </footer>
