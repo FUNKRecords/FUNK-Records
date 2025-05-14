@@ -4,9 +4,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
   <title>X.L.T Records</title>
+  <meta name="description" content="X.L.T Records is an independent artist-owned music label and distributor. Discover music, submit demos, and explore our catalogue." />
+  <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="X.L.T Records - Artist-Owned Label" />
+  <meta property="og:description" content="Independent music distribution by artists, for artists." />
+  <meta property="og:image" content="https://xltrecords.com/social-preview.png" />
+  <meta property="og:url" content="https://xltrecords.com" />
+  <meta property="og:type" content="website" />
   <style>
     body {
       margin: 0;
@@ -16,23 +26,15 @@
       line-height: 1.6;
     }
 
-    header,
-    section {
-      padding: 2rem;
-      max-width: 900px;
+    header, main, footer {
+      max-width: 960px;
       margin: auto;
+      padding: 2rem;
     }
 
-    header {
-      text-align: center;
-      padding-top: 4rem;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-weight: 800;
+      margin-bottom: 0.5rem;
     }
 
     a {
@@ -58,37 +60,33 @@
       background: #008ACF;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    footer {
+    .hero {
+      background: url('hero.jpg') center/cover no-repeat;
+      padding: 6rem 2rem;
       text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: #aaa;
+      color: white;
     }
 
-    /* Mobile Menu */
-    .menu-toggle {
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+    }
+
+    nav {
       position: absolute;
       top: 20px;
       right: 20px;
+      z-index: 1001;
+    }
+
+    .menu-toggle {
       background: #00BFFF;
       color: white;
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 5px;
       cursor: pointer;
-      z-index: 1001;
       font-size: 24px;
     }
 
@@ -102,7 +100,6 @@
       background: #222;
       padding: 2rem;
       box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
     }
 
     #mobile-menu ul {
@@ -114,81 +111,91 @@
       margin: 1rem 0;
     }
 
-    #mobile-menu a {
-      color: white;
-      font-size: 18px;
+    section {
+      padding: 2rem 0;
     }
 
-    #mobile-menu a:hover {
-      text-decoration: underline;
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 3rem 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        display: block;
+        margin: 0.5rem 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- Hamburger Menu Button -->
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-  <!-- Mobile Navigation Menu -->
-  <nav id="mobile-menu">
-    <ul>
-      <li><a href="#about" onclick="closeMenu()">About</a></li>
-      <li><a href="#artist" onclick="closeMenu()">Artist</a></li>
-      <li><a href="catalogue.html" onclick="closeMenu()">Catalogue</a></li>
-      <li><a href="submit-demo.html" onclick="closeMenu()">Submit Demo</a></li>
-      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-    </ul>
+  <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div id="mobile-menu">
+      <ul>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#artist" onclick="closeMenu()">Artist</a></li>
+        <li><a href="catalogue.html" onclick="closeMenu()">Catalogue</a></li>
+        <li><a href="submit-demo.html" onclick="closeMenu()">Submit Demo</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <header>
-    <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: auto;">
-  <img src="logo.png" alt="X.L.T Records Logo" style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-    <p><strong>An independent record label and digital distributor — Artist Owned. Artist Focused.</strong></p>
-    <p>X.L.T Records is a music distribution platform founded by passionate artists. We aim to give creators full control over their releases and royalties.</p>
-    <a href="catalogue.html" class="btn">View Our Catalogue</a>
+  <header class="hero">
+    <img src="logo.png" alt="X.L.T Records Logo">
+    <h1>X.L.T Records</h1>
+    <p><strong>Independent Label — Artist Owned. Artist Focused.</strong></p>
+    <a href="catalogue.html" class="btn">View Catalogue</a>
     <a href="submit-demo.html" class="btn">Submit Your Demo</a>
   </header>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>X.L.T Records is an independent record label and distribution platform founded by an artist who experienced firsthand the challenges of releasing music through unreliable services. After struggling with late releases, missing monetization, and poor support from major distributors, the vision for X.L.T Records was born — a label created by an artist, for artists.</p>
-    <p>We support a wide range of genres including Phonk, chill phonk, electronic, lo-fi, instrumental, and emotional-driven music. We believe in quality over quantity, transparency in reporting, and giving every artist the freedom to shape their sound without limits.</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>X.L.T Records is an independent label and distribution platform founded by an artist. We support genres like Phonk, lo-fi, instrumental, and emotional-driven music, prioritizing transparency, quality, and artist freedom.</p>
+    </section>
 
-  <section id="artist">
-    <h2>Artist</h2>
-    <h3>Founder & Lead Artist</h3>
-    <p><strong>Nxyy / XALYTHAR / I AM BODO</strong></p>
-    <p>The mind behind X.L.T Records, this multi-project artist produces — Nxyy, I AM BODO, and XALYTHAR.</p>
-    <blockquote>“X.L.T Records was built from the ground up — by an artist, for artists.”</blockquote>
-    <h3>Explore the Music</h3>
-    <ul>
-      <li>Nxyy – <a href="https://open.spotify.com/artist/0io80SxMW6efl49W5uqhSD">Spotify</a> | <a href="https://youtube.com/channel/UC8IsHCYREj77PZ9z781IhSw">YouTube</a></li>
-      <li>XALYTHAR – <a href="https://open.spotify.com/artist/1Q6joJMcsMqhkU0BiKMvEL">Spotify</a> | <a href="https://youtube.com/channel/UCLDXYLX8L3Am5KNScAEB9Dg">YouTube</a></li>
-      <li>I AM BODO – <a href="https://open.spotify.com/artist/2kpwDMhhdHDHBBJNffuW7Q">Spotify</a> | <a href="https://youtube.com/channel/UCfY4Oz92f1925QW0r8v9PQQ">YouTube</a></li>
-    </ul>
-  </section>
+    <section id="artist">
+      <h2>Artist</h2>
+      <h3>Founder & Lead Artist</h3>
+      <p><strong>Nxyy / XALYTHAR / I AM BODO</strong></p>
+      <blockquote>“X.L.T Records was built from the ground up — by an artist, for artists.”</blockquote>
+      <ul>
+        <li>Nxyy – <a href="https://open.spotify.com/artist/0io80SxMW6efl49W5uqhSD">Spotify</a> | <a href="https://youtube.com/channel/UC8IsHCYREj77PZ9z781IhSw">YouTube</a></li>
+        <li>XALYTHAR – <a href="https://open.spotify.com/artist/1Q6joJMcsMqhkU0BiKMvEL">Spotify</a> | <a href="https://youtube.com/channel/UCLDXYLX8L3Am5KNScAEB9Dg">YouTube</a></li>
+        <li>I AM BODO – <a href="https://open.spotify.com/artist/2kpwDMhhdHDHBBJNffuW7Q">Spotify</a> | <a href="https://youtube.com/channel/UCfY4Oz92f1925QW0r8v9PQQ">YouTube</a></li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>General Inquiries:</strong> xltrecordslebal@gmail.com</p>
-    <p><strong>Licensing & Legal:</strong> xltrecordslebal@gmail.com</p>
-    <p><strong>Instagram:</strong>
-      <a href="https://www.instagram.com/bodo_otaku_" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
-      </a>
-    </p>
-  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> xltrecordslebal@gmail.com</p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/bodo_otaku_" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" /></a></p>
+    </section>
 
-  <section id="legal">
-    <h2>Legal & Copyright</h2>
-    <p><strong>Label Name:</strong> X.L.T Records</p>
-    <p><strong>Founder:</strong> Albard Basumata</p>
-    <p>All music, branding, and visual content on this site is created by or licensed to X.L.T Records, or owned by the original artist(s) under agreement.</p>
-    <p>By sending a demo, you confirm you're the legal rightsholder and authorize X.L.T Records to review it. No rights are transferred unless both parties enter a signed agreement.</p>
-    <p>“X.L.T Records” is a trademark. Do not use it for marketing or reposting without permission.</p>
-  </section>
+    <section id="legal">
+      <h2>Legal & Copyright</h2>
+      <p><strong>Label Name:</strong> X.L.T Records</p>
+      <p><strong>Founder:</strong> Albard Basumata</p>
+      <p>All music and visuals are licensed to or owned by X.L.T Records. Demos submitted imply legal rightsholder status. No rights are transferred unless signed in writing.</p>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 X.L.T Records. All rights reserved.</p>
