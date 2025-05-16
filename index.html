@@ -7,6 +7,7 @@
   <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
   <title>X.L.T Records</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -77,7 +78,6 @@
       color: #aaa;
     }
 
-    /* Mobile Menu */
     .menu-toggle {
       position: absolute;
       top: 20px;
@@ -122,6 +122,35 @@
     #mobile-menu a:hover {
       text-decoration: underline;
     }
+
+    /* Feature Grid Styling */
+    .feature-grid {
+      background: linear-gradient(to bottom, #000, #1a1a1a);
+      padding: 4rem 1rem;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 4rem;
+      }
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-card i {
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 
@@ -142,13 +171,32 @@
 
   <header>
     <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: auto;">
-  <img src="logo.png" alt="X.L.T Records Logo" style="width: 100%; height: 100%; object-fit: cover;">
-</div>
+      <img src="logo.png" alt="X.L.T Records Logo" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
     <p><strong>An independent record label and digital distributor — Artist Owned. Artist Focused.</strong></p>
     <p>X.L.T Records is a music distribution platform founded by passionate artists. We aim to give creators full control over their releases and royalties.</p>
     <a href="catalogue.html" class="btn">View Our Catalogue</a>
     <a href="submit-demo.html" class="btn">Submit Your Demo</a>
   </header>
+
+  <!-- Features Grid Section -->
+  <section class="feature-grid">
+    <div class="feature-card">
+      <i class="fas fa-wallet text-4xl text-blue-400"></i>
+      <h3 class="text-xl font-bold">100% Royalties</h3>
+      <p>Keep all your earnings from streaming platforms</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-globe text-4xl text-blue-400"></i>
+      <h3 class="text-xl font-bold">Global Reach</h3>
+      <p>Distribution to 150+ platforms worldwide</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-bolt text-4xl text-blue-400"></i>
+      <h3 class="text-xl font-bold">Fast Delivery</h3>
+      <p>Guaranteed release within 72 hours</p>
+    </div>
+  </section>
 
   <section id="about">
     <h2>About Us</h2>
@@ -174,18 +222,16 @@
     <h2>Contact</h2>
     <p><strong>General Inquiries:</strong> xltrecordslebal@gmail.com</p>
     <p><strong>Licensing & Legal:</strong> xltrecordslebal@gmail.com</p>
-    
     <p><strong>Instagram (Founder Of X.L.T):</strong>
-    <a href="https://www.instagram.com/bodo_otaku_" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
-    </a>
-  </p>
-  
-  <p><strong>Instagram (Official Label):</strong>
-    <a href="https://www.instagram.com/xltrecordslebal" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
-    </a>
-  </p>
+      <a href="https://www.instagram.com/bodo_otaku_" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
+      </a>
+    </p>
+    <p><strong>Instagram (Official Label):</strong>
+      <a href="https://www.instagram.com/xltrecordslebal" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
+      </a>
+    </p>
   </section>
 
   <section id="legal">
