@@ -1,279 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
   <title>X.L.T Records</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #00BFFF;
-      --bg-color: #111;
-      --card-bg: #1a1a1a;
-      --text-color: #fff;
-      --text-muted: #aaa;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    header,
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    header {
-      text-align: center;
-      animation: fadeIn 1.2s ease;
-    }
-
-    h1, h2, h3 {
-      font-weight: 800;
-      margin-bottom: 0.8rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #008ACF;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white;
-      padding: 0.7rem 1.4rem;
-      border-radius: 6px;
-      margin: 1rem 0.4rem;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #008ACF;
-    }
-
-    .logo-circle {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 1.5rem;
-      border: 2px solid var(--primary-color);
-    }
-
-    .logo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    blockquote {
-      font-style: italic;
-      margin: 1rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--primary-color);
-      color: var(--text-muted);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid #333;
-      margin-top: 3rem;
-    }
-
-    /* Mobile Menu */
-    .menu-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      z-index: 1001;
-      font-size: 22px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    #mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 260px;
-      height: 100%;
-      background: #1a1a1a;
-      padding: 2rem;
-      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-    }
-
-    #mobile-menu ul li {
-      margin: 1.2rem 0;
-    }
-
-    #mobile-menu a {
-      color: white;
-      font-size: 18px;
-      font-weight: 500;
-    }
-
-    #mobile-menu a:hover {
-      color: var(--primary-color);
-    }
-
+    body { font-family: 'Inter', sans-serif; }
+    .fade-in { animation: fadeIn 1.2s ease-in-out both; }
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 768px) {
-      header,
-      section {
-        padding: 2rem 1rem;
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
+<body class="bg-gray-950 text-white">
 
-<body>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-  <nav id="mobile-menu">
-    <ul>
-      <li><a href="#about" onclick="closeMenu()">About</a></li>
-      <li><a href="#artist" onclick="closeMenu()">Artist</a></li>
-      <li><a href="catalogue.html" onclick="closeMenu()">Catalogue</a></li>
-      <li><a href="submit-demo.html" onclick="closeMenu()">Submit Demo</a></li>
-      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-    </ul>
+  <!-- NAVIGATION -->
+  <nav class="bg-gray-900 px-6 py-4 flex justify-between items-center shadow-md fixed top-0 w-full z-50">
+    <a href="#" class="text-xl font-extrabold text-cyan-400">X.L.T Records</a>
+    <div class="hidden md:flex space-x-6 text-sm">
+      <a href="#about" class="hover:text-cyan-400 transition">About</a>
+      <a href="#artist" class="hover:text-cyan-400 transition">Artist</a>
+      <a href="catalogue.html" class="hover:text-cyan-400 transition">Catalogue</a>
+      <a href="submit-demo.html" class="hover:text-cyan-400 transition">Submit Demo</a>
+      <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+    </div>
   </nav>
 
-  <header>
-    <div class="logo-circle">
-      <img src="logo.png" alt="X.L.T Records Logo">
+  <!-- HERO -->
+  <header class="pt-32 pb-16 text-center bg-gradient-to-b from-black via-gray-900 to-gray-950 fade-in">
+    <img src="logo.png" alt="X.L.T Records Logo" class="w-36 h-36 mx-auto rounded-full object-cover shadow-lg">
+    <h1 class="mt-6 text-4xl font-extrabold tracking-tight">X.L.T Records</h1>
+    <p class="mt-3 text-lg max-w-xl mx-auto">Independent Record Label & Digital Distributor — Artist Owned. Artist Focused.</p>
+    <div class="mt-6 space-x-4">
+      <a href="catalogue.html" class="bg-cyan-500 hover:bg-cyan-600 px-6 py-2 rounded-lg text-white font-semibold transition">View Catalogue</a>
+      <a href="submit-demo.html" class="bg-white text-black hover:bg-gray-200 px-6 py-2 rounded-lg font-semibold transition">Submit Demo</a>
     </div>
-    <p><strong>An independent record label and digital distributor — Artist Owned. Artist Focused.</strong></p>
-    <p>X.L.T Records is a music distribution platform founded by passionate artists. We aim to give creators full control over their releases and royalties.</p>
-    <a href="catalogue.html" class="btn">View Our Catalogue</a>
-    <a href="submit-demo.html" class="btn">Submit Your Demo</a>
   </header>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>X.L.T Records is an independent record label and distribution platform founded by an artist who experienced firsthand the challenges of releasing music through unreliable services. After struggling with late releases, missing monetization, and poor support from major distributors, the vision for X.L.T Records was born — a label created by an artist, for artists.</p>
-    <p>We support a wide range of genres including Phonk, chill phonk, electronic, lo-fi, instrumental, and emotional-driven music. We believe in quality over quantity, transparency in reporting, and giving every artist the freedom to shape their sound without limits.</p>
+  <!-- ABOUT -->
+  <section id="about" class="py-20 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-3xl font-bold mb-4 text-cyan-400">About Us</h2>
+    <p class="mb-4">X.L.T Records was created to give artists full control over their music — no hidden fees, no delays, no middlemen. We're built from experience, frustration, and a drive to create a better path for independent artists.</p>
+    <p>Our platform supports genres including Phonk, Lo-fi, Chill, Instrumental, and Electronic. We focus on high-quality releases, transparent royalty reporting, and global distribution to Spotify, Apple Music, TikTok, and more.</p>
   </section>
 
-  <section id="artist">
-    <h2>Artist</h2>
-    <h3>Founder & Lead Artist</h3>
-    <p><strong>Nxyy / XALYTHAR / I AM BODO</strong></p>
-    <p>The mind behind X.L.T Records, this multi-project artist produces — Nxyy, I AM BODO, and XALYTHAR.</p>
-    <blockquote>“X.L.T Records was built from the ground up — by an artist, for artists.”</blockquote>
-
-    <h3>Explore the Music</h3>
-    <ul>
-      <li>Nxyy – <a href="https://open.spotify.com/artist/0io80SxMW6efl49W5uqhSD">Spotify</a> | <a href="https://youtube.com/channel/UC8IsHCYREj77PZ9z781IhSw">YouTube</a></li>
-      <li>XALYTHAR – <a href="https://open.spotify.com/artist/1Q6joJMcsMqhkU0BiKMvEL">Spotify</a> | <a href="https://youtube.com/channel/UCLDXYLX8L3Am5KNScAEB9Dg">YouTube</a></li>
-      <li>I AM BODO – <a href="https://open.spotify.com/artist/2kpwDMhhdHDHBBJNffuW7Q">Spotify</a> | <a href="https://youtube.com/channel/UCfY4Oz92f1925QW0r8v9PQQ">YouTube</a></li>
-    </ul>
+  <!-- ARTIST -->
+  <section id="artist" class="py-20 px-6 bg-gray-900 fade-in">
+    <h2 class="text-3xl font-bold mb-6 text-cyan-400">Our Artists</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <img src="artist1.jpg" alt="Nxyy" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold">Nxyy</h3>
+        <p class="text-sm">Lo-fi | Chill Phonk</p>
+      </div>
+      <div class="text-center">
+        <img src="artist2.jpg" alt="XALYTHAR" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold">XALYTHAR</h3>
+        <p class="text-sm">Experimental | Instrumental</p>
+      </div>
+      <div class="text-center">
+        <img src="artist3.jpg" alt="I AM BODO" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
+        <h3 class="text-xl font-semibold">I AM BODO</h3>
+        <p class="text-sm">Phonk | Cinematic</p>
+      </div>
+    </div>
+    <div class="mt-8 text-center space-y-2">
+      <p><strong>Explore on Spotify:</strong></p>
+      <p><a href="https://open.spotify.com/artist/0io80SxMW6efl49W5uqhSD" class="text-cyan-400">Nxyy</a> | 
+         <a href="https://open.spotify.com/artist/1Q6joJMcsMqhkU0BiKMvEL" class="text-cyan-400">XALYTHAR</a> | 
+         <a href="https://open.spotify.com/artist/2kpwDMhhdHDHBBJNffuW7Q" class="text-cyan-400">I AM BODO</a></p>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 px-6 max-w-4xl mx-auto fade-in">
+    <h2 class="text-3xl font-bold mb-4 text-cyan-400">Contact</h2>
     <p><strong>General Inquiries:</strong> xltrecordslebal@gmail.com</p>
     <p><strong>Licensing & Legal:</strong> xltrecordslebal@gmail.com</p>
-
-    <p><strong>Instagram (Founder Of X.L.T):</strong>
+    <div class="mt-4 flex space-x-6">
       <a href="https://www.instagram.com/bodo_otaku_" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 28px; vertical-align: middle; margin-left: 10px;" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-8 h-8" />
       </a>
-    </p>
-
-    <p><strong>Instagram (Official Label):</strong>
       <a href="https://www.instagram.com/xltrecordslebal" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 28px; vertical-align: middle; margin-left: 10px;" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-8 h-8" />
       </a>
-    </p>
+    </div>
   </section>
 
-  <section id="legal">
-    <h2>Legal & Copyright</h2>
-    <p><strong>Label Name:</strong> X.L.T Records</p>
-    <p><strong>Founder:</strong> Albard Basumata</p>
-    <p>All music, branding, and visual content on this site is created by or licensed to X.L.T Records, or owned by the original artist(s) under agreement.</p>
-    <p>By sending a demo, you confirm you're the legal rightsholder and authorize X.L.T Records to review it. No rights are transferred unless both parties enter a signed agreement.</p>
-    <p>“X.L.T Records” is a trademark. Do not use it for marketing or reposting without permission.</p>
+  <!-- LEGAL -->
+  <section id="legal" class="py-16 px-6 bg-gray-900 text-sm fade-in">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold mb-2 text-cyan-400">Legal</h2>
+      <p><strong>Label Name:</strong> X.L.T Records</p>
+      <p><strong>Founder:</strong> Albard Basumata</p>
+      <p class="mt-2">All content is protected by copyright and owned by X.L.T Records or licensed by the original creators. Submitting demos does not transfer ownership unless agreed contractually.</p>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 X.L.T Records. All rights reserved.</p>
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-gray-400 text-sm border-t border-gray-700">
+    &copy; 2025 X.L.T Records. All rights reserved.
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-    }
-
-    function closeMenu() {
-      document.getElementById('mobile-menu').style.display = 'none';
-    }
-
-    document.addEventListener('click', function (event) {
-      const menu = document.getElementById('mobile-menu');
-      const toggle = document.querySelector('.menu-toggle');
-      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-        menu.style.display = 'none';
-      }
-    });
-  </script>
 </body>
-
 </html>
