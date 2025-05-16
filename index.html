@@ -1,164 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
-    <title>X.L.T Records</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <!-- ScrollReveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        }
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .neon-hover:hover {
-            box-shadow: 0 0 15px #00BFFF;
-        }
-        .marquee {
-            animation: scroll 20s linear infinite;
-            display: flex;
-            width: max-content;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
+  <title>X.L.T Records</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header,
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 4rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 800;
+    }
+
+    a {
+      color: #00BFFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #00BFFF;
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border-radius: 5px;
+      margin: 1rem 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #008ACF;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #00BFFF;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 24px;
+    }
+
+    #mobile-menu {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      padding: 2rem;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    #mobile-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #mobile-menu li {
+      margin: 1rem 0;
+    }
+
+    #mobile-menu a {
+      color: white;
+      font-size: 18px;
+    }
+
+    #mobile-menu a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
-<body class="bg-black text-gray-100">
-    <!-- Sticky Header -->
-    <nav class="fixed w-full top-0 z-50 bg-black/90 backdrop-blur-md shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold">X.L.T</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#artist" class="hover:text-blue-400 transition-colors">Artist</a>
-                <a href="catalogue.html" class="hover:text-blue-400 transition-colors">Catalogue</a>
-                <a href="submit-demo.html" class="hover:text-blue-400 transition-colors">Demo</a>
-                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
-            </div>
-            <button class="md:hidden text-2xl" onclick="toggleMenu()">☰</button>
-        </div>
-    </nav>
+<body>
+  <!-- Hamburger Menu Button -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-64 bg-black/95 backdrop-blur-lg transform transition-transform translate-x-full p-6 z-50">
-        <ul class="space-y-6">
-            <li><a href="#about" class="text-white hover:text-blue-400" onclick="closeMenu()">About</a></li>
-            <li><a href="#artist" class="text-white hover:text-blue-400" onclick="closeMenu()">Artist</a></li>
-            <li><a href="catalogue.html" class="text-white hover:text-blue-400" onclick="closeMenu()">Catalogue</a></li>
-            <li><a href="submit-demo.html" class="text-white hover:text-blue-400" onclick="closeMenu()">Submit Demo</a></li>
-            <li><a href="#contact" class="text-white hover:text-blue-400" onclick="closeMenu()">Contact</a></li>
-        </ul>
-    </div>
+  <!-- Mobile Navigation Menu -->
+  <nav id="mobile-menu">
+    <ul>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#artist" onclick="closeMenu()">Artist</a></li>
+      <li><a href="catalogue.html" onclick="closeMenu()">Catalogue</a></li>
+      <li><a href="submit-demo.html" onclick="closeMenu()">Submit Demo</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 hero-gradient">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mx-auto w-48 h-48 rounded-full overflow-hidden border-4 border-blue-400/30 mb-8 animate__animated animate__zoomIn">
-                <img src="logo.png" alt="X.L.T Records Logo" class="w-full h-full object-cover">
-            </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeInUp">
-                X.L.T RECORDS
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate__animated animate__fadeInUp">
-                Artist Owned. Artist Focused.
-            </p>
-            <div class="flex justify-center gap-4 animate__animated animate__fadeInUp">
-                <a href="catalogue.html" class="glassmorphism px-8 py-3 rounded-lg hover:bg-blue-400/20 transition-colors">
-                    View Catalogue
-                </a>
-                <a href="submit-demo.html" class="bg-blue-500 px-8 py-3 rounded-lg neon-hover transition-all">
-                    Submit Demo
-                </a>
-            </div>
-        </div>
-    </header>
+  <header>
+    <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin: auto;">
+  <img src="logo.png" alt="X.L.T Records Logo" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+    <p><strong>An independent record label and digital distributor — Artist Owned. Artist Focused.</strong></p>
+    <p>X.L.T Records is a music distribution platform founded by passionate artists. We aim to give creators full control over their releases and royalties.</p>
+    <a href="catalogue.html" class="btn">View Our Catalogue</a>
+    <a href="submit-demo.html" class="btn">Submit Your Demo</a>
+  </header>
 
-    <!-- Features Grid -->
-    <section class="py-20 bg-gradient-to-b from-black to-gray-900/50">
-        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
-            <div class="feature-card glassmorphism p-6 rounded-xl">
-                <i class="fas fa-wallet text-4xl text-blue-400 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">100% Royalties</h3>
-                <p>Keep all your earnings from streaming platforms</p>
-            </div>
-            <div class="feature-card glassmorphism p-6 rounded-xl">
-                <i class="fas fa-globe text-4xl text-blue-400 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Global Reach</h3>
-                <p>Distribution to 150+ platforms worldwide</p>
-            </div>
-            <div class="feature-card glassmorphism p-6 rounded-xl">
-                <i class="fas fa-bolt text-4xl text-blue-400 mb-4"></i>
-                <h3 class="text-xl font-bold mb-2">Fast Delivery</h3>
-                <p>Guaranteed release within 72 hours</p>
-            </div>
-        </div>
-    </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>X.L.T Records is an independent record label and distribution platform founded by an artist who experienced firsthand the challenges of releasing music through unreliable services. After struggling with late releases, missing monetization, and poor support from major distributors, the vision for X.L.T Records was born — a label created by an artist, for artists.</p>
+    <p>We support a wide range of genres including Phonk, chill phonk, electronic, lo-fi, instrumental, and emotional-driven music. We believe in quality over quantity, transparency in reporting, and giving every artist the freedom to shape their sound without limits.</p>
+  </section>
 
-    <!-- Platform Logos -->
-    <div class="py-12 bg-gray-900/50 overflow-hidden">
-        <div class="marquee">
-            <img src="spotify-logo.png" class="h-12 opacity-80 hover:opacity-100 transition mx-8" alt="Spotify">
-            <img src="apple-music-logo.png" class="h-12 opacity-80 hover:opacity-100 transition mx-8" alt="Apple Music">
-            <img src="youtube-music-logo.png" class="h-12 opacity-80 hover:opacity-100 transition mx-8" alt="YouTube Music">
-            <img src="deezer-logo.png" class="h-12 opacity-80 hover:opacity-100 transition mx-8" alt="Deezer">
-            <img src="amazon-music-logo.png" class="h-12 opacity-80 hover:opacity-100 transition mx-8" alt="Amazon Music">
-        </div>
-    </div>
+  <section id="artist">
+    <h2>Artist</h2>
+    <h3>Founder & Lead Artist</h3>
+    <p><strong>Nxyy / XALYTHAR / I AM BODO</strong></p>
+    <p>The mind behind X.L.T Records, this multi-project artist produces — Nxyy, I AM BODO, and XALYTHAR.</p>
+    <blockquote>“X.L.T Records was built from the ground up — by an artist, for artists.”</blockquote>
+    <h3>Explore the Music</h3>
+    <ul>
+      <li>Nxyy – <a href="https://open.spotify.com/artist/0io80SxMW6efl49W5uqhSD">Spotify</a> | <a href="https://youtube.com/channel/UC8IsHCYREj77PZ9z781IhSw">YouTube</a></li>
+      <li>XALYTHAR – <a href="https://open.spotify.com/artist/1Q6joJMcsMqhkU0BiKMvEL">Spotify</a> | <a href="https://youtube.com/channel/UCLDXYLX8L3Am5KNScAEB9Dg">YouTube</a></li>
+      <li>I AM BODO – <a href="https://open.spotify.com/artist/2kpwDMhhdHDHBBJNffuW7Q">Spotify</a> | <a href="https://youtube.com/channel/UCfY4Oz92f1925QW0r8v9PQQ">YouTube</a></li>
+    </ul>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8">About Us</h2>
-        <p class="mb-4">X.L.T Records is an independent record label and distribution platform founded by an artist who experienced firsthand the challenges of releasing music through unreliable services. After struggling with late releases, missing monetization, and poor support from major distributors, the vision for X.L.T Records was born — a label created by an artist, for artists.</p>
-        <p class="mb-4">We support a wide range of genres including Phonk, chill phonk, electronic, lo-fi, instrumental, and emotional-driven music. We believe in quality over quantity, transparency in reporting, and giving every artist the freedom to shape their sound without limits.</p>
-    </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>General Inquiries:</strong> xltrecordslebal@gmail.com</p>
+    <p><strong>Licensing & Legal:</strong> xltrecordslebal@gmail.com</p>
+    
+    <p><strong>Instagram (Founder Of X.L.T):</strong>
+    <a href="https://www.instagram.com/bodo_otaku_" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
+    </a>
+  </p>
+  
+  <p><strong>Instagram (Official Label):</strong>
+    <a href="https://www.instagram.com/xltrecordslebal" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; vertical-align: middle; margin-left: 10px;" />
+    </a>
+  </p>
+  </section>
 
-    <!-- Placeholder for additional sections like Artist, Contact, and Legal -->
+  <section id="legal">
+    <h2>Legal & Copyright</h2>
+    <p><strong>Label Name:</strong> X.L.T Records</p>
+    <p><strong>Founder:</strong> Albard Basumata</p>
+    <p>All music, branding, and visual content on this site is created by or licensed to X.L.T Records, or owned by the original artist(s) under agreement.</p>
+    <p>By sending a demo, you confirm you're the legal rightsholder and authorize X.L.T Records to review it. No rights are transferred unless both parties enter a signed agreement.</p>
+    <p>“X.L.T Records” is a trademark. Do not use it for marketing or reposting without permission.</p>
+  </section>
 
-    <script>
-        // Mobile Menu Functions
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('translate-x-full');
-        }
+  <footer>
+    <p>&copy; 2025 X.L.T Records. All rights reserved.</p>
+  </footer>
 
-        function closeMenu() {
-            document.getElementById('mobile-menu').classList.add('translate-x-full');
-        }
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
 
-        // ScrollReveal Initialization
-        ScrollReveal().reveal('.feature-card', {
-            delay: 200,
-            interval: 100,
-            origin: 'bottom',
-            distance: '20px',
-            reset: false
-        });
+    function closeMenu() {
+      document.getElementById('mobile-menu').style.display = 'none';
+    }
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+    document.addEventListener('click', function (event) {
+      const menu = document.getElementById('mobile-menu');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  </script>
 </body>
+
 </html>
