@@ -2,108 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
-  <title>X.L.T Records</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X.L.T Records | Independent Distributor</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .fade-in { animation: fadeIn 1.2s ease-in-out both; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    body {
+      background: linear-gradient(180deg, #000 0%, #0a0a23 100%);
+      color: white;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
     }
   </style>
 </head>
-<body class="bg-gray-950 text-white">
+<body class="font-sans">
 
-  <!-- NAVIGATION -->
-  <nav class="bg-gray-900 px-6 py-4 flex justify-between items-center shadow-md fixed top-0 w-full z-50">
-    <a href="#" class="text-xl font-extrabold text-cyan-400">X.L.T Records</a>
-    <div class="hidden md:flex space-x-6 text-sm">
-      <a href="#about" class="hover:text-cyan-400 transition">About</a>
-      <a href="#artist" class="hover:text-cyan-400 transition">Artist</a>
-      <a href="catalogue.html" class="hover:text-cyan-400 transition">Catalogue</a>
-      <a href="submit-demo.html" class="hover:text-cyan-400 transition">Submit Demo</a>
-      <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="pt-32 pb-16 text-center bg-gradient-to-b from-black via-gray-900 to-gray-950 fade-in">
-    <img src="logo.png" alt="X.L.T Records Logo" class="w-36 h-36 mx-auto rounded-full object-cover shadow-lg">
-    <h1 class="mt-6 text-4xl font-extrabold tracking-tight">X.L.T Records</h1>
-    <p class="mt-3 text-lg max-w-xl mx-auto">Independent Record Label & Digital Distributor — Artist Owned. Artist Focused.</p>
-    <div class="mt-6 space-x-4">
-      <a href="catalogue.html" class="bg-cyan-500 hover:bg-cyan-600 px-6 py-2 rounded-lg text-white font-semibold transition">View Catalogue</a>
-      <a href="submit-demo.html" class="bg-white text-black hover:bg-gray-200 px-6 py-2 rounded-lg font-semibold transition">Submit Demo</a>
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="py-20 px-6 max-w-4xl mx-auto fade-in">
-    <h2 class="text-3xl font-bold mb-4 text-cyan-400">About Us</h2>
-    <p class="mb-4">X.L.T Records was created to give artists full control over their music — no hidden fees, no delays, no middlemen. We're built from experience, frustration, and a drive to create a better path for independent artists.</p>
-    <p>Our platform supports genres including Phonk, Lo-fi, Chill, Instrumental, and Electronic. We focus on high-quality releases, transparent royalty reporting, and global distribution to Spotify, Apple Music, TikTok, and more.</p>
-  </section>
-
-  <!-- ARTIST -->
-  <section id="artist" class="py-20 px-6 bg-gray-900 fade-in">
-    <h2 class="text-3xl font-bold mb-6 text-cyan-400">Our Artists</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="text-center">
-        <img src="artist1.jpg" alt="Nxyy" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-semibold">Nxyy</h3>
-        <p class="text-sm">Lo-fi | Chill Phonk</p>
-      </div>
-      <div class="text-center">
-        <img src="artist2.jpg" alt="XALYTHAR" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-semibold">XALYTHAR</h3>
-        <p class="text-sm">Experimental | Instrumental</p>
-      </div>
-      <div class="text-center">
-        <img src="artist3.jpg" alt="I AM BODO" class="w-32 h-32 mx-auto rounded-full object-cover mb-4">
-        <h3 class="text-xl font-semibold">I AM BODO</h3>
-        <p class="text-sm">Phonk | Cinematic</p>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center text-center px-4">
+    <div data-aos="zoom-in" class="max-w-2xl">
+      <img src="https://xltrecordslebal.github.io/assets/logo.png" alt="XLT Logo" class="mx-auto w-32 mb-6">
+      <h1 class="text-4xl md:text-5xl font-bold">X.L.T Records</h1>
+      <p class="mt-4 text-lg text-gray-300">Independent Music Distribution — Artist Owned. Artist Focused.</p>
+      <div class="mt-6 space-x-4">
+        <a href="#catalogue" class="px-6 py-3 rounded-full bg-blue-500 hover:bg-blue-600 transition">View Catalogue</a>
+        <a href="#demo" class="px-6 py-3 rounded-full bg-white text-black hover:bg-gray-200 transition">Submit Demo</a>
       </div>
     </div>
-    <div class="mt-8 text-center space-y-2">
-      <p><strong>Explore on Spotify:</strong></p>
-      <p><a href="https://open.spotify.com/artist/0io80SxMW6efl49W5uqhSD" class="text-cyan-400">Nxyy</a> | 
-         <a href="https://open.spotify.com/artist/1Q6joJMcsMqhkU0BiKMvEL" class="text-cyan-400">XALYTHAR</a> | 
-         <a href="https://open.spotify.com/artist/2kpwDMhhdHDHBBJNffuW7Q" class="text-cyan-400">I AM BODO</a></p>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-black text-center">
+    <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Why Distribute with Us?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+      <div class="glass p-6 rounded-xl" data-aos="fade-up">
+        <h3 class="text-xl font-semibold">100% Royalties</h3>
+        <p class="mt-2 text-gray-300">Keep every cent you earn — no hidden fees.</p>
+      </div>
+      <div class="glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-semibold">Fast Delivery</h3>
+        <p class="mt-2 text-gray-300">Get your music live on stores in 24-48 hours.</p>
+      </div>
+      <div class="glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-semibold">Global Reach</h3>
+        <p class="mt-2 text-gray-300">Distribute to Spotify, Apple, YouTube, TikTok, and more.</p>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-20 px-6 max-w-4xl mx-auto fade-in">
-    <h2 class="text-3xl font-bold mb-4 text-cyan-400">Contact</h2>
-    <p><strong>General Inquiries:</strong> xltrecordslebal@gmail.com</p>
-    <p><strong>Licensing & Legal:</strong> xltrecordslebal@gmail.com</p>
-    <div class="mt-4 flex space-x-6">
-      <a href="https://www.instagram.com/bodo_otaku_" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-8 h-8" />
-      </a>
-      <a href="https://www.instagram.com/xltrecordslebal" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-8 h-8" />
-      </a>
+  <!-- Demo Submission CTA -->
+  <section id="demo" class="py-20 bg-gradient-to-r from-blue-600 to-purple-700 text-center">
+    <div class="max-w-xl mx-auto" data-aos="fade-up">
+      <h2 class="text-3xl font-bold">Ready to Get Heard?</h2>
+      <p class="mt-3 text-white">Submit your demo and join our artist-first movement.</p>
+      <a href="mailto:submit@xltrecords.com" class="inline-block mt-6 px-8 py-3 bg-white text-blue-800 rounded-full hover:opacity-90">Submit Your Demo</a>
     </div>
   </section>
 
-  <!-- LEGAL -->
-  <section id="legal" class="py-16 px-6 bg-gray-900 text-sm fade-in">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold mb-2 text-cyan-400">Legal</h2>
-      <p><strong>Label Name:</strong> X.L.T Records</p>
-      <p><strong>Founder:</strong> Albard Basumata</p>
-      <p class="mt-2">All content is protected by copyright and owned by X.L.T Records or licensed by the original creators. Submitting demos does not transfer ownership unless agreed contractually.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="text-center py-6 text-gray-400 text-sm border-t border-gray-700">
-    &copy; 2025 X.L.T Records. All rights reserved.
+  <!-- Footer -->
+  <footer class="bg-black py-8 text-center text-gray-400">
+    <p>&copy; 2025 X.L.T Records. All rights reserved.</p>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
