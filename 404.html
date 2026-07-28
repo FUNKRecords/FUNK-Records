@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#060606" />
+  <meta name="robots" content="noindex" />
+
+  <title>Page Not Found — FUNK UNIVERSE</title>
+  <meta name="description" content="This page doesn't exist. Head back to FUNK UNIVERSE." />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css" />
+
+  <style>
+    .lost {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .lost::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(0,0,0,0.035) 3px, rgba(0,0,0,0.035) 4px
+      );
+      pointer-events: none;
+    }
+    .lost::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(200,200,200,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .code {
+      position: relative; z-index: 1;
+      font-family: var(--font-h); font-weight: 700;
+      font-size: clamp(7rem, 26vw, 20rem);
+      line-height: .85; letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.05);
+      user-select: none;
+    }
+    .lost h1 {
+      position: relative; z-index: 1;
+      font-family: var(--font-h); font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--white);
+      margin-top: -1rem; margin-bottom: 1.2rem;
+    }
+    .lost p {
+      position: relative; z-index: 1;
+      font-size: .9rem; color: var(--muted);
+      line-height: 1.75; max-width: 42ch;
+      margin-bottom: 2.4rem;
+    }
+    .lost-actions {
+      position: relative; z-index: 1;
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    }
+    .lost-links {
+      position: relative; z-index: 1;
+      margin-top: 3rem;
+      display: flex; gap: 1.6rem; flex-wrap: wrap; justify-content: center;
+      list-style: none;
+    }
+    .lost-links a {
+      font-family: var(--font-h);
+      font-size: .64rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--muted-dim);
+      text-decoration: none; transition: color .2s;
+    }
+    .lost-links a:hover { color: var(--white); }
+
+    @media (max-width: 480px) {
+      .lost-actions { flex-direction: column; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
+
+  <main class="lost">
+    <div class="code" aria-hidden="true">404</div>
+    <h1>Page Not Found</h1>
+    <p>This page doesn't exist, or it moved. The label is still here.</p>
+
+    <div class="lost-actions">
+      <a href="/" class="btn">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+        Back to Home
+      </a>
+      <a href="/submit-demo.html" class="btn btn-ghost">Submit a Demo</a>
+    </div>
+
+    <ul class="lost-links">
+      <li><a href="/start-your-label.html">Start Your Label</a></li>
+      <li><a href="/support.html">Support</a></li>
+      <li><a href="/#legal">Legal</a></li>
+    </ul>
+  </main>
+
+  <script src="/assets/site.js" defer></script>
+
+</body>
+</html>

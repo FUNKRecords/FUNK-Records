@@ -3,48 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Submit Your Music – FUNK UNIVERSE</title>
+  <meta name="theme-color" content="#060606" />
 
+  <title>Submit Your Demo — FUNK UNIVERSE</title>
+  <meta name="description" content="Send your demo to FUNK UNIVERSE. We review Brazilian funk, phonk, chill phonk, lofi, electronic and experimental tracks. Private streaming links only." />
+  <link rel="canonical" href="https://funkuniverserecords.com/submit-demo.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FUNK UNIVERSE" />
+  <meta property="og:title" content="Submit Your Demo — FUNK UNIVERSE" />
+  <meta property="og:description" content="Send your demo to FUNK UNIVERSE. Every submission is reviewed by our team." />
+  <meta property="og:url" content="https://funkuniverserecords.com/submit-demo.html" />
+  <meta property="og:image" content="https://funkuniverserecords.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://funkuniverserecords.com/og-image.jpg" />
+
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css" />
 
   <style>
-    :root {
-      --bg: #060606;
-      --surface: #0e0e0e;
-      --line: rgba(255,255,255,0.08);
-      --white: #f0ede8;
-      --muted: #666;
-      --font-h: 'Barlow Condensed', sans-serif;
-      --font-b: 'Barlow', sans-serif;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-b);
-    }
-
-    nav {
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid var(--line);
-      font-family: var(--font-h);
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
     .container {
       max-width: 700px;
-      margin: auto;
-      padding: 4rem 1.5rem;
+      margin: 0 auto;
+      padding: 9rem 1.5rem 5rem;
     }
 
-    h1 {
+    .page-title {
       font-family: var(--font-h);
+      font-weight: 700;
       font-size: clamp(2.2rem, 5vw, 3rem);
       letter-spacing: .05em;
+      line-height: 1;
       margin-bottom: 1.2rem;
       text-transform: uppercase;
     }
@@ -53,67 +48,18 @@
       color: var(--muted);
       margin-bottom: 2.5rem;
       line-height: 1.7;
+      font-size: .92rem;
+      max-width: 58ch;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-    }
+    form { display: flex; flex-direction: column; gap: 1.6rem; }
 
-    label {
-      font-family: var(--font-h);
-      font-size: .7rem;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: .4rem;
-      display: block;
-    }
-
-    input, textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--line);
-      padding: .9rem 0;
-      color: var(--white);
-      font-size: .95rem;
-      outline: none;
-      transition: border-color .2s;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--white);
-    }
-
-    textarea {
-      resize: none;
-      min-height: 120px;
-    }
-
-    .btn {
-      margin-top: 1rem;
-      background: var(--white);
-      color: var(--bg);
-      border: none;
-      padding: 1rem;
-      font-family: var(--font-h);
-      font-size: .8rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s, opacity .2s;
-    }
-
-    .btn:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(255,255,255,.1);
-    }
-
-    .btn:disabled {
-      opacity: .5;
-      cursor: not-allowed;
+    .field .hint {
+      font-family: var(--font-b);
+      font-size: .76rem;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--muted-dim);
     }
 
     .note {
@@ -122,163 +68,229 @@
       color: var(--muted);
     }
 
-    /* Success / Error message */
-    .msg {
+    /* Success panel replaces the form once the demo is through. */
+    .sent {
       display: none;
-      margin-top: 1.5rem;
-      padding: 1rem 1.2rem;
-      font-family: var(--font-h);
-      font-size: .8rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
+      flex-direction: column; align-items: flex-start;
       border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 2.5rem 2rem;
+      background: var(--surface);
     }
-
-    .msg.success {
-      display: block;
-      border-color: rgba(255,255,255,.25);
-      color: var(--white);
+    .sent.show { display: flex; }
+    .sent .i { width: 1.9rem; height: 1.9rem; color: var(--silver); margin-bottom: 1.2rem; }
+    .sent h2 {
+      font-family: var(--font-h); font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--white); margin-bottom: .7rem;
     }
-
-    .msg.error {
-      display: block;
-      border-color: rgba(255,80,80,.4);
-      color: #ff6060;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--line);
-      font-family: var(--font-h);
-      font-size: .6rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+    .sent p { font-size: .86rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.8rem; }
   </style>
 </head>
-
 <body>
 
-  <nav>FUNK UNIVERSE</nav>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="container">
-    <h1>Submit Your Demo</h1>
-    <p class="desc">
-  We’re always exploring new sounds that align with our vision — Brazilian Funk, Phonk, Chill Phonk, Lofi, Electronic, and experimental styles.
-  <br><br>
-  Every submission is carefully reviewed, but only selected tracks move forward for release.
-    </p>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
 
-    <form id="demoForm">
+  <!-- NAV -->
+  <nav aria-label="Primary">
+    <a href="index.html" class="nav-wordmark">Funk Universe</a>
+    <div class="nav-right">
+      <a href="index.html#features" class="nav-link">Services</a>
+      <a href="index.html#legal" class="nav-link">Legal</a>
+      <a href="start-your-label.html" class="nav-link">Start Your Label</a>
+      <a href="support.html" class="nav-link">Support</a>
+      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link" target="_blank" rel="noopener">Playlist</a>
+      <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-      <div>
-        <label for="name">Artist Name & Real Name</label>
-        <input type="text" name="name" id="name" required>
-      </div>
-
-      <div>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-      </div>
-
-      <div>
-        <label for="track">Demo Link</label>
-        <input type="url" name="demo-link" id="track" required>
-      </div>
-
-      <div>
-        <label for="message">Message (Optional)</label>
-        <textarea name="message" id="message"></textarea>
-      </div>
-
-      <button type="submit" class="btn" id="submitBtn">Submit for Review</button>
-
-    </form>
-
-    <div class="msg" id="statusMsg"></div>
-
-    <p class="note">
-      *We only accept private streaming links. No attachments.
-    </p>
+  <!-- DRAWER -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Services</a>
+    <a href="index.html#legal">Legal</a>
+    <a href="start-your-label.html">Start Your Label</a>
+    <a href="support.html">Support</a>
+    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" target="_blank" rel="noopener">Playlist</a>
+    <a href="submit-demo.html">Submit Demo</a>
   </div>
 
+  <main id="main" class="container">
+    <p class="eyebrow">Funk Universe — Demos</p>
+    <h1 class="page-title">Submit Your Demo</h1>
+    <p class="desc">
+      We're always exploring new sounds that align with our vision — Brazilian Funk, Phonk, Chill Phonk, Lofi, Electronic, and experimental styles.
+      <br><br>
+      Every submission is carefully reviewed, but only selected tracks move forward for release.
+    </p>
+
+    <!-- Shown after a successful submission -->
+    <div class="sent" id="sentPanel" role="status">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m4 12.5 5.5 5.5L20 7"/></svg>
+      <h2>Demo Received</h2>
+      <p>Thanks — your track is with our team. Check your email for a confirmation. If your demo is selected, we'll contact you directly.</p>
+      <a href="index.html" class="btn btn-ghost">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+        Back to Home
+      </a>
+    </div>
+
+    <form id="demoForm" novalidate>
+      <div class="field-group">
+
+        <div class="field">
+          <label for="name">Artist Name &amp; Real Name</label>
+          <input type="text" name="name" id="name" autocomplete="name" required />
+          <span class="field-error" id="err-name">Please enter your name</span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" autocomplete="email" required />
+          <span class="field-error" id="err-email">Please enter a valid email address</span>
+        </div>
+
+        <div class="field">
+          <label for="track">Demo Link</label>
+          <input type="url" name="demo-link" id="track" placeholder="https://soundcloud.com/..." required />
+          <span class="hint">A private streaming link — SoundCloud, Drive, Dropbox or similar.</span>
+          <span class="field-error" id="err-track">Please enter a full link starting with https://</span>
+        </div>
+
+        <div class="field">
+          <label for="message">Message (Optional)</label>
+          <textarea name="message" id="message"></textarea>
+        </div>
+
+        <!-- Honeypot: hidden from people, filled in by bots. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div>
+          <button type="submit" class="btn" id="submitBtn">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-8-8-4L21 3Z"/></svg>
+            <span id="submitLabel">Submit for Review</span>
+          </button>
+        </div>
+
+      </div>
+
+      <p class="form-status" id="formStatus" role="alert"></p>
+
+      <p class="note">*We only accept private streaming links. No attachments.</p>
+    </form>
+  </main>
+
   <footer>
-    © 2026 FUNK UNIVERSE. All rights reserved.
+    <a href="index.html" aria-label="Funk Universe — home">
+      <img src="logo-160.png" alt="FUNK UNIVERSE" class="footer-logo" width="160" height="160" loading="lazy" decoding="async" />
+    </a>
+    <p>&copy; 2026 FUNK UNIVERSE. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="index.html#features">Services</a></li>
+      <li><a href="index.html#legal">Legal</a></li>
+      <li><a href="start-your-label.html">Start Your Label</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
   </footer>
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="assets/site.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
 
   <script>
-    // ── Init EmailJS ──────────────────────────────────────────
-    (function () {
-      emailjs.init("n0VPNf5P4M6yJN_iK");
-    })();
+  // Deferred scripts have all run by DOMContentLoaded, so emailjs and FU exist.
+  window.addEventListener('DOMContentLoaded', function () {
+    // The EmailJS CDN can be blocked by an extension or simply be down.
+    // Touching it unguarded would throw here and leave the whole form dead.
+    var mailer = typeof emailjs !== 'undefined' ? emailjs : null;
+    if (mailer) mailer.init('n0VPNf5P4M6yJN_iK');
 
-    // ── Form Submit ───────────────────────────────────────────
-    document.getElementById("demoForm").addEventListener("submit", function (e) {
-      e.preventDefault(); // Stop native form reload
+    var form   = document.getElementById('demoForm');
+    var btn    = document.getElementById('submitBtn');
+    var label  = document.getElementById('submitLabel');
+    var status = document.getElementById('formStatus');
+    var sent   = document.getElementById('sentPanel');
 
-      const btn       = document.getElementById("submitBtn");
-      const statusMsg = document.getElementById("statusMsg");
+    FU.watchFields(form);
 
-      // Grab values
-      const name    = document.getElementById("name").value.trim();
-      const email   = document.getElementById("email").value.trim();
-      const track   = document.getElementById("track").value.trim();
-      const message = document.getElementById("message").value.trim();
+    function validate() {
+      var ok = true;
+      var name  = document.getElementById('name');
+      var email = document.getElementById('email');
+      var track = document.getElementById('track');
 
-      // Disable button while processing
-      btn.disabled   = true;
-      btn.textContent = "Sending…";
-      statusMsg.className = "msg";
-      statusMsg.textContent = "";
+      if (!name.value.trim())          ok = FU.markInvalid(name) && ok;
+      if (!FU.isEmail(email.value.trim())) ok = FU.markInvalid(email) && ok;
+      if (!FU.isUrl(track.value.trim()))   ok = FU.markInvalid(track) && ok;
+      return ok;
+    }
 
-      const templateData = {
-        name:    name,
-        email:   email,
-        track:   track,
-        message: message
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      FU.clearStatus(status);
+
+      // Bot filled the honeypot — pretend it worked, send nothing.
+      if (document.getElementById('website').value) {
+        form.style.display = 'none';
+        sent.classList.add('show');
+        return;
+      }
+
+      if (!validate()) {
+        FU.setStatus(status, 'error', 'Please correct the highlighted fields.');
+        FU.focusFirstInvalid(form);
+        return;
+      }
+
+      btn.disabled = true;
+      label.textContent = 'Sending…';
+
+      var data = {
+        name:    document.getElementById('name').value.trim(),
+        email:   document.getElementById('email').value.trim(),
+        track:   document.getElementById('track').value.trim(),
+        message: document.getElementById('message').value.trim()
       };
 
-      // ── STEP 1: EmailJS auto-reply to artist ─────────────────
-      emailjs.send("service_1nxlw2b", "template_hq0q2bb", templateData)
+      // 1. Auto-reply to the artist, 2. store the submission for the label.
+      // Without the mailer we skip the auto-reply rather than drop the demo —
+      // getting the track to the label is the part that actually matters.
+      var autoReply = mailer
+        ? mailer.send('service_1nxlw2b', 'template_hq0q2bb', data).catch(function () {})
+        : Promise.resolve();
+
+      autoReply
         .then(function () {
-
-          // ── STEP 2: Formspree — stores submission & emails you ──
-          return fetch("https://formspree.io/f/mzzrkpqj", {
-            method: "POST",
-            headers: { "Accept": "application/json" },
-            body: new FormData(document.getElementById("demoForm"))
+          return fetch('https://formspree.io/f/mzzrkpqj', {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new FormData(form)
           });
-
         })
         .then(function (res) {
-
-          if (res.ok) {
-            // ✅ Both succeeded
-            statusMsg.className   = "msg success";
-            statusMsg.textContent = "Demo received! Check your email for confirmation.";
-            document.getElementById("demoForm").reset();
-          } else {
-            // Formspree failed
-            throw new Error("Formspree submission failed.");
-          }
-
+          if (!res.ok) throw new Error('Formspree rejected the submission');
+          form.style.display = 'none';
+          sent.classList.add('show');
+          sent.scrollIntoView({ block: 'center', behavior: FU.reduceMotion ? 'auto' : 'smooth' });
         })
         .catch(function (err) {
           console.error(err);
-          statusMsg.className   = "msg error";
-          statusMsg.textContent = "Something went wrong. Please try again or contact us directly.";
-        })
-        .finally(function () {
-          btn.disabled    = false;
-          btn.textContent = "Send Demo";
+          btn.disabled = false;
+          label.textContent = 'Submit for Review';
+          FU.setStatus(status, 'error', 'Something went wrong. Please try again, or reach us through the support page.');
         });
-
     });
+  });
   </script>
 
 </body>

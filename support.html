@@ -3,124 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support — FUNK UNIVERSE</title>
+  <meta name="theme-color" content="#060606" />
+
+  <title>Support &amp; FAQ — FUNK UNIVERSE</title>
+  <meta name="description" content="Answers about demo submissions, label applications and working with FUNK UNIVERSE — plus a direct contact form for specific inquiries." />
+  <link rel="canonical" href="https://funkuniverserecords.com/support.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FUNK UNIVERSE" />
+  <meta property="og:title" content="Support &amp; FAQ — FUNK UNIVERSE" />
+  <meta property="og:description" content="Answers about demo submissions, label applications and working with FUNK UNIVERSE." />
+  <meta property="og:url" content="https://funkuniverserecords.com/support.html" />
+  <meta property="og:image" content="https://funkuniverserecords.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://funkuniverserecords.com/og-image.jpg" />
+
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/site.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #060606;
-      --surface: #0e0e0e;
-      --line:    rgba(255,255,255,0.07);
-      --line-focus: rgba(255,255,255,0.3);
-      --silver:  #c8c8c8;
-      --white:   #f0ede8;
-      --muted:   #555;
-      --font-h:  'Barlow Condensed', sans-serif;
-      --font-b:  'Barlow', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-b);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      .cursor, .cursor-ring { display: block; }
-    }
-    .cursor {
-      display: none; position: fixed;
-      width: 8px; height: 8px;
-      background: var(--white); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-    }
-    .cursor-ring {
-      display: none; position: fixed;
-      width: 34px; height: 34px;
-      border: 1px solid rgba(255,255,255,0.35); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: width .3s, height .3s, border-color .3s;
-    }
-    body:has(a:hover) .cursor-ring,
-    body:has(button:hover) .cursor-ring { width: 54px; height: 54px; border-color: rgba(255,255,255,0.7); }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 600;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: linear-gradient(to bottom, rgba(6,6,6,0.97) 60%, transparent);
-    }
-    .nav-wordmark {
-      font-family: var(--font-h); font-weight: 700; font-size: 1rem;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--silver); text-decoration: none;
-    }
-    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-link {
-      font-family: var(--font-h); font-weight: 400; font-size: 0.72rem;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; transition: color .2s;
-    }
-    .nav-link:hover { color: var(--white); }
-    .nav-cta {
-      font-family: var(--font-h); font-weight: 600; font-size: 0.72rem;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--bg); background: var(--white);
-      padding: 0.55rem 1.4rem; border-radius: 2px; text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-    .nav-cta:hover { background: #fff; transform: translateY(-1px); }
-    .nav-toggle {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer;
-      padding: 8px; position: relative; z-index: 601;
-    }
-    @media (hover: hover) and (pointer: fine) { .nav-toggle { cursor: none; } }
-    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all .3s; }
-    .drawer {
-      position: fixed; inset: 0; background: var(--bg); z-index: 590;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.5rem;
-      opacity: 0; pointer-events: none; transition: opacity .4s;
-    }
-    .drawer.open { opacity: 1; pointer-events: all; }
-    .drawer a {
-      font-family: var(--font-h); font-weight: 700;
-      font-size: clamp(2.8rem, 10vw, 5rem);
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .4s, transform .4s, color .2s;
-    }
-    .drawer.open a { opacity: 1; transform: none; }
-    .drawer.open a:nth-child(1) { transition-delay: .05s; }
-    .drawer.open a:nth-child(2) { transition-delay: .10s; }
-    .drawer.open a:nth-child(3) { transition-delay: .15s; }
-    .drawer.open a:nth-child(4) { transition-delay: .20s; }
-    .drawer.open a:nth-child(5) { transition-delay: .25s; }
-    .drawer a:hover { color: var(--muted); }
-
     /* ── HERO ── */
     .page-hero {
       min-height: 60vh;
       display: flex; flex-direction: column;
       align-items: flex-start; justify-content: flex-end;
-      padding: 0 6rem 5rem;
+      padding: 8rem 6rem 5rem;
       position: relative; overflow: hidden;
       border-bottom: 1px solid var(--line);
     }
@@ -141,36 +54,30 @@
       pointer-events: none; user-select: none; letter-spacing: -0.03em;
     }
     .hero-content { position: relative; z-index: 2; }
-    .eyebrow {
-      font-family: var(--font-h); font-size: .66rem;
-      letter-spacing: .35em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.2rem;
+    .page-hero .eyebrow {
+      font-size: .66rem; letter-spacing: .35em; margin-bottom: 1.2rem;
+      animation: fadeUp 1.2s cubic-bezier(.16,1,.3,1) .1s both;
     }
     .page-title {
       font-family: var(--font-h); font-weight: 700;
-      font-size: clamp(4rem, 9vw, 9rem);
+      font-size: clamp(3.2rem, 9vw, 9rem);
       line-height: .9; letter-spacing: .02em;
       text-transform: uppercase; color: var(--white);
       margin-bottom: 1.4rem;
+      animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .2s both;
     }
     .page-desc {
       font-size: .9rem; color: var(--muted);
       line-height: 1.75; max-width: 50ch;
+      animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .35s both;
     }
 
     /* ── LAYOUT ── */
-    .rule { width: 100%; height: 1px; background: var(--line); }
+    .page-body { display: grid; grid-template-columns: 1fr 1fr; }
 
-    .page-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
+    .faq-panel { padding: 5rem 6rem; border-right: 1px solid var(--line); }
+    .contact-panel { padding: 5rem 6rem; background: var(--surface); }
 
-    /* ── FAQ ── */
-    .faq-panel {
-      padding: 5rem 6rem;
-      border-right: 1px solid var(--line);
-    }
     .section-eyebrow {
       font-family: var(--font-h); font-size: .62rem;
       letter-spacing: .3em; text-transform: uppercase;
@@ -181,10 +88,14 @@
       font-size: clamp(2rem, 3.5vw, 3.2rem);
       line-height: .95; letter-spacing: .04em;
       text-transform: uppercase; color: var(--white);
-      margin-bottom: 3rem;
+      margin-bottom: .8rem;
+    }
+    .section-note {
+      font-size: .82rem; color: var(--muted-dim);
+      margin-bottom: 2.4rem;
     }
 
-    /* FAQ category tabs */
+    /* ── FAQ TABS ── */
     .faq-tabs {
       display: flex; gap: .5rem; flex-wrap: wrap;
       margin-bottom: 2.4rem;
@@ -195,22 +106,19 @@
       color: var(--muted);
       border: 1px solid var(--line);
       border-radius: 2px;
-      padding: .45rem 1rem;
+      padding: .55rem 1rem;
       background: none; cursor: pointer;
       transition: border-color .2s, color .2s, background .2s;
     }
-    @media (hover: hover) and (pointer: fine) { .faq-tab { cursor: none; } }
     .faq-tab:hover { color: var(--silver); border-color: rgba(255,255,255,.2); }
-    .faq-tab.active { color: var(--white); border-color: var(--white); background: rgba(255,255,255,.04); }
-
-    /* FAQ items */
-    .faq-group { display: none; }
-    .faq-group.active { display: block; }
-
-    .faq-item {
-      border-bottom: 1px solid var(--line);
-      overflow: hidden;
+    .faq-tab[aria-selected="true"] {
+      color: var(--white); border-color: var(--white); background: rgba(255,255,255,.04);
     }
+
+    /* ── FAQ ITEMS ── */
+    .faq-group[hidden] { display: none; }
+
+    .faq-item { border-bottom: 1px solid var(--line); }
     .faq-item:first-child { border-top: 1px solid var(--line); }
 
     .faq-question {
@@ -219,96 +127,40 @@
       gap: 1rem;
       padding: 1.4rem 0;
       text-align: left; cursor: pointer;
-    }
-    @media (hover: hover) and (pointer: fine) { .faq-question { cursor: none; } }
-    .faq-question span {
       font-family: var(--font-h); font-weight: 600;
       font-size: 0.92rem; letter-spacing: .06em;
       text-transform: uppercase; color: var(--white);
       transition: color .2s;
     }
-    .faq-question:hover span { color: var(--silver); }
-    .faq-icon {
-      font-size: .7rem; color: var(--muted); flex-shrink: 0;
+    .faq-question:hover { color: var(--silver); }
+    .faq-question .i {
+      width: .85rem; height: .85rem;
+      color: var(--muted);
       transition: transform .35s cubic-bezier(.16,1,.3,1), color .2s;
     }
-    .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--white); }
+    .faq-question[aria-expanded="true"] .i { transform: rotate(45deg); color: var(--white); }
 
+    /* Grid-rows animation collapses to the answer's real height, so long
+       answers are never clipped the way a fixed max-height clipped them. */
     .faq-answer {
-      max-height: 0; overflow: hidden;
-      transition: max-height .45s cubic-bezier(.16,1,.3,1), padding .35s;
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows .4s cubic-bezier(.16,1,.3,1);
     }
-    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer > div { overflow: hidden; }
+    .faq-item.open .faq-answer { grid-template-rows: 1fr; }
     .faq-answer p {
       font-size: .86rem; color: var(--muted);
       line-height: 1.75; padding-bottom: 1.4rem;
     }
 
-    /* ── CONTACT FORM ── */
-    .contact-panel {
-      padding: 5rem 6rem;
-      background: var(--surface);
-    }
-
-    .field-group { display: flex; flex-direction: column; gap: 1.4rem; }
-    .field { display: flex; flex-direction: column; gap: .5rem; }
-    .field label {
-      font-family: var(--font-h); font-size: .62rem;
-      letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
-    }
-    .field input,
-    .field select,
-    .field textarea {
-      background: var(--bg);
-      border: 1px solid var(--line); border-radius: 2px;
-      color: var(--white);
-      font-family: var(--font-b); font-weight: 300; font-size: .88rem;
-      padding: .85rem 1rem; outline: none; width: 100%;
-      transition: border-color .25s, background .25s;
-      appearance: none; -webkit-appearance: none;
-    }
-    .field input::placeholder,
-    .field textarea::placeholder { color: var(--muted); opacity: .5; }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: var(--line-focus);
-      background: rgba(255,255,255,.02);
-    }
-    .field textarea { resize: vertical; min-height: 120px; }
-    .field select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23555' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 1rem center;
-      padding-right: 2.5rem; cursor: pointer;
-    }
-    @media (hover: hover) and (pointer: fine) { .field select { cursor: none; } }
-    .field select option { background: #111; color: var(--white); }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: .7rem;
-      font-family: var(--font-h); font-weight: 600; font-size: .78rem;
-      letter-spacing: .22em; text-transform: uppercase;
-      text-decoration: none; color: var(--bg); background: var(--white);
-      padding: 1rem 2.4rem; border-radius: 2px; border: none; cursor: pointer;
-      transition: background .25s, transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
-      margin-top: .6rem;
-    }
-    @media (hover: hover) and (pointer: fine) { .btn { cursor: none; } }
-    .btn:hover {
-      background: #fff; transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(255,255,255,.11);
-    }
-
-    /* success state */
+    /* ── CONTACT SUCCESS ── */
     .contact-success {
       display: none;
       flex-direction: column; align-items: flex-start;
       padding: 2.5rem 0;
     }
     .contact-success.show { display: flex; }
-    .contact-success .success-icon {
-      font-size: 1.8rem; color: var(--silver); margin-bottom: 1.2rem;
-    }
+    .contact-success .i { width: 1.8rem; height: 1.8rem; color: var(--silver); margin-bottom: 1.2rem; }
     .contact-success h3 {
       font-family: var(--font-h); font-weight: 700;
       font-size: clamp(2rem, 3vw, 2.8rem);
@@ -319,255 +171,256 @@
       font-size: .86rem; color: var(--muted); line-height: 1.75; max-width: 36ch;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 2.5rem 3rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo { width: 80px; filter: brightness(.4) contrast(1.2); mix-blend-mode: screen; }
-    footer p { font-family: var(--font-h); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { font-family: var(--font-h); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--white); }
-
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
-    .reveal.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    .contact-panel .btn { margin-top: .6rem; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.8rem; }
-      .nav-link, .nav-cta { display: none; }
-      .nav-toggle { display: flex; }
-      .page-hero { padding: 0 2rem 4rem; min-height: 50vh; }
+      .page-hero { padding: 7rem 1.5rem 3.5rem; min-height: 50vh; }
       .hero-bg-text { display: none; }
       .page-body { grid-template-columns: 1fr; }
-      .faq-panel { padding: 4rem 2rem; border-right: none; border-bottom: 1px solid var(--line); }
-      .contact-panel { padding: 4rem 2rem; }
-      footer { padding: 2rem 1.5rem; }
-      .footer-links { display: none; }
+      .faq-panel { padding: 4rem 1.5rem; border-right: none; border-bottom: 1px solid var(--line); }
+      .contact-panel { padding: 4rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cring"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav>
+  <nav aria-label="Primary">
     <a href="index.html" class="nav-wordmark">Funk Universe</a>
     <div class="nav-right">
       <a href="index.html#features" class="nav-link">Services</a>
       <a href="index.html#legal" class="nav-link">Legal</a>
-      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link">Playlist</a>
       <a href="start-your-label.html" class="nav-link">Start Your Label</a>
+      <a href="support.html" class="nav-link">Support</a>
+      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link" target="_blank" rel="noopener">Playlist</a>
       <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- DRAWER -->
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true">
-    <a href="index.html" onclick="closeDrawer()">Home</a>
-    <a href="index.html#features" onclick="closeDrawer()">Services</a>
-    <a href="index.html#legal" onclick="closeDrawer()">Legal</a>
-    <a href="start-your-label.html" onclick="closeDrawer()">Start Your Label</a>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Services</a>
+    <a href="index.html#legal">Legal</a>
+    <a href="start-your-label.html">Start Your Label</a>
+    <a href="support.html">Support</a>
+    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" target="_blank" rel="noopener">Playlist</a>
     <a href="submit-demo.html">Submit Demo</a>
   </div>
 
   <!-- HERO -->
   <header class="page-hero">
-    <div class="hero-bg-text">FAQ</div>
+    <div class="hero-bg-text" aria-hidden="true">FAQ</div>
     <div class="hero-content">
-      <p class="eyebrow" style="animation: fadeUp 1.2s cubic-bezier(.16,1,.3,1) .1s both; display:block;">Funk Universe — Support</p>
-      <h1 class="page-title" style="animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .2s both;">How Can<br>We Help</h1>
-      <p class="page-desc" style="animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .35s both;">Find answers to common questions, or contact us for specific inquiries.</p>
+      <p class="eyebrow">Funk Universe — Support</p>
+      <h1 class="page-title">How Can<br>We Help</h1>
+      <p class="page-desc">Find answers to common questions, or contact us for specific inquiries.</p>
     </div>
   </header>
 
-  <!-- BODY -->
-  <div class="page-body">
+  <main id="main" class="page-body">
 
     <!-- FAQ -->
-    <section class="faq-panel">
+    <section class="faq-panel" aria-labelledby="faqHeading">
       <p class="section-eyebrow reveal">Common Questions</p>
-      <h2 class="section-title reveal d1">FAQ</h2>
-      <p style="font-size:.82rem; color:var(--muted); margin-top:-2rem; margin-bottom:2rem; opacity:.6;" class="reveal d1">Low-quality or unclear submissions may not be reviewed.</p>
+      <h2 class="section-title reveal d1" id="faqHeading">FAQ</h2>
+      <p class="section-note reveal d1">Low-quality or unclear submissions may not be reviewed.</p>
 
-      <!-- Tabs -->
-      <div class="faq-tabs reveal d2">
-        <button class="faq-tab active" data-tab="demo">Demo Submissions</button>
-        <button class="faq-tab" data-tab="label">Label Application</button>
-        <button class="faq-tab" data-tab="general">General</button>
+      <div class="faq-tabs reveal d2" role="tablist" aria-label="FAQ categories">
+        <button class="faq-tab" id="tab-demo" role="tab" aria-selected="true" aria-controls="faq-demo" data-tab="demo">Demo Submissions</button>
+        <button class="faq-tab" id="tab-label" role="tab" aria-selected="false" aria-controls="faq-label" data-tab="label">Label Application</button>
+        <button class="faq-tab" id="tab-general" role="tab" aria-selected="false" aria-controls="faq-general" data-tab="general">General</button>
       </div>
 
       <!-- DEMO SUBMISSIONS -->
-      <div class="faq-group active" id="faq-demo">
+      <div class="faq-group" id="faq-demo" role="tabpanel" aria-labelledby="tab-demo">
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>How do I submit a demo?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-d1">
+              How do I submit a demo?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-d1"><div>
             <p>Go to the Submit Demo page and fill in your details. We accept links to SoundCloud, Google Drive, or any streaming platform. Make sure your track is accessible before submitting.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>What genres do you accept?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-d2">
+              What genres do you accept?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-d2"><div>
             <p>Funk Universe focuses on Brazilian funk and phonk. We are selective — only submit if your music genuinely fits within these genres.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>How long does a review take?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-d3">
+              How long does a review take?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-d3"><div>
             <p>We review every submission carefully. Response times vary depending on volume. If your demo is selected, you will be contacted directly. If you don't hear back, your submission was not selected at this time.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Can I submit more than one track?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-d4">
+              Can I submit more than one track?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-d4"><div>
             <p>Yes, but we recommend submitting your strongest track first. Quality over quantity — send us your best work.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Do you take any rights when I submit?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-d5">
+              Do you take any rights when I submit?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-d5"><div>
             <p>No. Submitting a demo does not transfer any rights. You retain full ownership of your music unless both parties sign a formal agreement.</p>
-          </div>
+          </div></div>
         </div>
 
       </div>
 
       <!-- LABEL APPLICATION -->
-      <div class="faq-group" id="faq-label">
+      <div class="faq-group" id="faq-label" role="tabpanel" aria-labelledby="tab-label" hidden>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Who is the label setup service for?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-l1">
+              Who is the label setup service for?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-l1"><div>
             <p>This is intended for artists, producers, and collectives looking to build independent labels using structured systems.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Is approval guaranteed?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-l2">
+              Is approval guaranteed?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-l2"><div>
             <p>No. We review all applications selectively. Submitting an application does not guarantee access. This is not intended for casual or experimental use.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>How long does the application review take?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
-            <span>How long does the application review take?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-l3">
+              How long does the application review take?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-l3"><div>
             <p>Review times vary. If your application is approved, you will be contacted with next steps. We do not provide updates on pending applications.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Do I need released music to apply?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-l4">
+              Do I need released music to apply?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-l4"><div>
             <p>No, released music is not required. However, having a clear label vision and long-term goals is essential. We evaluate seriousness, not just history.</p>
-          </div>
+          </div></div>
         </div>
 
       </div>
 
       <!-- GENERAL -->
-      <div class="faq-group" id="faq-general">
+      <div class="faq-group" id="faq-general" role="tabpanel" aria-labelledby="tab-general" hidden>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Who founded Funk Universe?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-g1">
+              Who founded Funk Universe?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-g1"><div>
             <p>Funk Universe was founded by Albard Basumata. It is an independent label focused on Brazilian funk and phonk, built around quality over quantity.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Is Funk Universe open to collaborations?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-g2">
+              Is Funk Universe open to collaborations?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-g2"><div>
             <p>We consider collaborations on a case by case basis. Use the contact form on this page to reach out with details about what you have in mind.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>Where is the label based?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-g3">
+              Where is the label based?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-g3"><div>
             <p>Funk Universe operates independently with a global reach. Our releases are distributed to all major streaming platforms worldwide.</p>
-          </div>
+          </div></div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-question">
-            <span>How do I follow your releases?</span>
-            <i class="fas fa-plus faq-icon"></i>
-          </button>
-          <div class="faq-answer">
+          <h3>
+            <button class="faq-question" aria-expanded="false" aria-controls="a-g4">
+              How do I follow your releases?
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="a-g4"><div>
             <p>You can follow our curated playlist on Spotify to stay up to date with all Funk Universe releases and new additions.</p>
-          </div>
+          </div></div>
         </div>
 
       </div>
     </section>
 
-    <!-- CONTACT FORM -->
-    <section class="contact-panel">
+    <!-- CONTACT -->
+    <section class="contact-panel" aria-labelledby="contactHeading">
       <p class="section-eyebrow reveal">Direct Message</p>
-      <h2 class="section-title reveal d1">Contact Us</h2>
-      <p style="font-size:.82rem; color:var(--muted); margin-top:-2rem; margin-bottom:2rem; opacity:.6;" class="reveal d1">For specific or serious inquiries only.</p>
+      <h2 class="section-title reveal d1" id="contactHeading">Contact Us</h2>
+      <p class="section-note reveal d1">For specific or serious inquiries only.</p>
 
-      <div class="contact-success" id="contactSuccess">
-        <div class="success-icon"><i class="fas fa-check"></i></div>
+      <div class="contact-success" id="contactSuccess" role="status">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m4 12.5 5.5 5.5L20 7"/></svg>
         <h3>Message Sent</h3>
         <p>We've received your message. If relevant, you will be contacted directly.</p>
       </div>
@@ -577,12 +430,14 @@
 
           <div class="field">
             <label for="cName">Full Name</label>
-            <input type="text" id="cName" name="cName" placeholder="Your name" required />
+            <input type="text" id="cName" name="cName" placeholder="Your name" autocomplete="name" required />
+            <span class="field-error">Please enter your name</span>
           </div>
 
           <div class="field">
             <label for="cEmail">Email Address</label>
-            <input type="email" id="cEmail" name="cEmail" placeholder="your@email.com" required />
+            <input type="email" id="cEmail" name="cEmail" placeholder="your@email.com" autocomplete="email" required />
+            <span class="field-error">Please enter a valid email address</span>
           </div>
 
           <div class="field">
@@ -595,132 +450,188 @@
               <option value="General Question">General Question</option>
               <option value="Other">Other</option>
             </select>
+            <span class="field-error">Please choose a topic</span>
           </div>
 
           <div class="field">
             <label for="cMessage">Message</label>
             <textarea id="cMessage" name="cMessage" placeholder="Write your message here..." required></textarea>
+            <span class="field-error">Please write a message</span>
+          </div>
+
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="cWebsite">Website</label>
+            <input type="text" id="cWebsite" name="cWebsite" tabindex="-1" autocomplete="off" />
           </div>
 
           <div>
             <button type="submit" class="btn" id="contactBtn">
-              <i class="fas fa-paper-plane"></i> Send Message
+              <svg class="i" id="contactIcon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-8-8-4L21 3Z"/></svg>
+              <span id="contactLabel">Send Message</span>
             </button>
           </div>
+
+          <p class="form-status" id="contactStatus" role="alert"></p>
 
         </div>
       </form>
     </section>
 
-  </div>
+  </main>
 
   <div class="rule"></div>
 
-  <!-- FOOTER -->
   <footer>
-    <img src="logo.png" alt="FUNK UNIVERSE" class="footer-logo" />
+    <a href="index.html" aria-label="Funk Universe — home">
+      <img src="logo-160.png" alt="FUNK UNIVERSE" class="footer-logo" width="160" height="160" loading="lazy" decoding="async" />
+    </a>
     <p>&copy; 2026 FUNK UNIVERSE. All rights reserved.</p>
     <ul class="footer-links">
       <li><a href="index.html#features">Services</a></li>
       <li><a href="index.html#legal">Legal</a></li>
-      <li><a href="submit-demo.html">Submit Demo</a></li>
       <li><a href="start-your-label.html">Start Your Label</a></li>
+      <li><a href="submit-demo.html">Submit Demo</a></li>
     </ul>
   </footer>
 
+  <script src="assets/site.js" defer></script>
+  <script src="cookie.js" defer></script>
+
   <script>
-    // ── Cursor ──
-    const isPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (isPointer) {
-      const cur = document.getElementById('cursor');
-      const crg = document.getElementById('cring');
-      if (cur && crg) {
-        cur.style.display = 'block'; crg.style.display = 'block';
-        let mx=0,my=0,rx=0,ry=0;
-        document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
-        (function loop(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; crg.style.left=rx+'px'; crg.style.top=ry+'px'; requestAnimationFrame(loop); })();
-      }
+  window.addEventListener('DOMContentLoaded', function () {
+
+    /* ── FAQ tabs ── */
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.faq-tab'));
+
+    function selectTab(tab) {
+      tabs.forEach(function (t) {
+        var selected = t === tab;
+        t.setAttribute('aria-selected', String(selected));
+        t.tabIndex = selected ? 0 : -1;
+        document.getElementById('faq-' + t.dataset.tab).hidden = !selected;
+      });
     }
 
-    // ── Drawer ──
-    const drawer  = document.getElementById('drawer');
-    const toggler = document.getElementById('navToggle');
-    function openDrawer() {
-      drawer.classList.add('open'); toggler.setAttribute('aria-expanded','true');
-      toggler.children[0].style.transform='rotate(45deg) translate(5px,5px)';
-      toggler.children[1].style.opacity='0';
-      toggler.children[2].style.transform='rotate(-45deg) translate(5px,-5px)';
-      document.body.style.overflow='hidden';
-    }
-    function closeDrawer() {
-      drawer.classList.remove('open'); toggler.setAttribute('aria-expanded','false');
-      toggler.children[0].style.transform='';
-      toggler.children[1].style.opacity='1';
-      toggler.children[2].style.transform='';
-      document.body.style.overflow='';
-    }
-    toggler.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
-    document.addEventListener('keydown', e => { if (e.key==='Escape' && drawer.classList.contains('open')) closeDrawer(); });
+    tabs.forEach(function (tab, i) {
+      tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
+      tab.addEventListener('click', function () { selectTab(tab); });
 
-    // ── FAQ tabs ──
-    document.querySelectorAll('.faq-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.faq-group').forEach(g => g.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('faq-' + tab.dataset.tab).classList.add('active');
+      // Arrow-key navigation, as expected of a tablist.
+      tab.addEventListener('keydown', function (e) {
+        var dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!dir) return;
+        e.preventDefault();
+        var next = tabs[(i + dir + tabs.length) % tabs.length];
+        selectTab(next);
+        next.focus();
       });
     });
 
-    // ── FAQ accordion ──
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        // close all in same group
-        btn.closest('.faq-group').querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.faq-item');
+        var willOpen = !item.classList.contains('open');
 
-    // ── Contact form — Formspree ──
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('contactBtn');
-      btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
-      btn.disabled = true;
+        // Only one answer open per category.
+        btn.closest('.faq-group').querySelectorAll('.faq-item').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
 
-      const form = document.getElementById('contactForm');
-      const data = new FormData(form);
-
-      fetch('https://formspree.io/f/mwvwgegn', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(res => {
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('contactSuccess').classList.add('show');
-        } else {
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-          btn.disabled = false;
-          alert('Something went wrong. Please try again.');
+        if (willOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
         }
-      })
-      .catch(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again.');
       });
     });
 
-    // ── Scroll reveal ──
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    setTimeout(() => { document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')); }, 2000);
+    /* ── Contact form ── */
+    var form   = document.getElementById('contactForm');
+    var btn    = document.getElementById('contactBtn');
+    var icon   = document.getElementById('contactIcon');
+    var label  = document.getElementById('contactLabel');
+    var status = document.getElementById('contactStatus');
+
+    FU.watchFields(form);
+
+    function validate() {
+      var ok = true;
+      var name  = document.getElementById('cName');
+      var email = document.getElementById('cEmail');
+      var topic = document.getElementById('cTopic');
+      var msg   = document.getElementById('cMessage');
+
+      if (!name.value.trim())              ok = FU.markInvalid(name) && ok;
+      if (!FU.isEmail(email.value.trim())) ok = FU.markInvalid(email) && ok;
+      if (!topic.value)                    ok = FU.markInvalid(topic) && ok;
+      if (!msg.value.trim())               ok = FU.markInvalid(msg) && ok;
+      return ok;
+    }
+
+    function resting() {
+      btn.disabled = false;
+      icon.classList.remove('i-spin');
+      label.textContent = 'Send Message';
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      FU.clearStatus(status);
+
+      if (document.getElementById('cWebsite').value) {
+        form.style.display = 'none';
+        document.getElementById('contactSuccess').classList.add('show');
+        return;
+      }
+
+      if (!validate()) {
+        FU.setStatus(status, 'error', 'Please correct the highlighted fields.');
+        FU.focusFirstInvalid(form);
+        return;
+      }
+
+      btn.disabled = true;
+      icon.classList.add('i-spin');
+      label.textContent = 'Sending…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Formspree rejected the submission');
+        form.style.display = 'none';
+        document.getElementById('contactSuccess').classList.add('show');
+      })
+      .catch(function (err) {
+        console.error(err);
+        resting();
+        FU.setStatus(status, 'error', 'Something went wrong. Please try again in a moment.');
+      });
+    });
+  });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do I submit a demo?", "acceptedAnswer": { "@type": "Answer", "text": "Go to the Submit Demo page and fill in your details. We accept links to SoundCloud, Google Drive, or any streaming platform. Make sure your track is accessible before submitting." } },
+      { "@type": "Question", "name": "What genres do you accept?", "acceptedAnswer": { "@type": "Answer", "text": "Funk Universe focuses on Brazilian funk and phonk. We are selective — only submit if your music genuinely fits within these genres." } },
+      { "@type": "Question", "name": "How long does a review take?", "acceptedAnswer": { "@type": "Answer", "text": "We review every submission carefully. Response times vary depending on volume. If your demo is selected, you will be contacted directly." } },
+      { "@type": "Question", "name": "Can I submit more than one track?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but we recommend submitting your strongest track first. Quality over quantity — send us your best work." } },
+      { "@type": "Question", "name": "Do you take any rights when I submit?", "acceptedAnswer": { "@type": "Answer", "text": "No. Submitting a demo does not transfer any rights. You retain full ownership of your music unless both parties sign a formal agreement." } },
+      { "@type": "Question", "name": "Who is the label setup service for?", "acceptedAnswer": { "@type": "Answer", "text": "This is intended for artists, producers, and collectives looking to build independent labels using structured systems." } },
+      { "@type": "Question", "name": "Is approval guaranteed?", "acceptedAnswer": { "@type": "Answer", "text": "No. We review all applications selectively. Submitting an application does not guarantee access." } },
+      { "@type": "Question", "name": "Do I need released music to apply?", "acceptedAnswer": { "@type": "Answer", "text": "No, released music is not required. However, having a clear label vision and long-term goals is essential." } },
+      { "@type": "Question", "name": "Who founded Funk Universe?", "acceptedAnswer": { "@type": "Answer", "text": "Funk Universe was founded by Albard Basumata. It is an independent label focused on Brazilian funk and phonk." } },
+      { "@type": "Question", "name": "Where is the label based?", "acceptedAnswer": { "@type": "Answer", "text": "Funk Universe operates independently with a global reach. Our releases are distributed to all major streaming platforms worldwide." } }
+    ]
+  }
   </script>
 
 </body>

@@ -3,182 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#060606" />
   <meta name="google-site-verification" content="aRJkK1v-RDq6Crn086kau5WQJN5hOikSnNif_sxnV_c" />
-  <title>FUNK UNIVERSE</title>
+
+  <title>FUNK UNIVERSE — Independent Record Label</title>
+  <meta name="description" content="FUNK UNIVERSE is an independent record label for Brazilian funk, phonk and electronic music. Global distribution, professional delivery, and artists keep full ownership of their masters." />
+  <link rel="canonical" href="https://funkuniverserecords.com/" />
+
+  <!-- Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FUNK UNIVERSE" />
+  <meta property="og:title" content="FUNK UNIVERSE — Independent Record Label" />
+  <meta property="og:description" content="Independent record label for Brazilian funk, phonk and electronic music. Global distribution — you keep your masters." />
+  <meta property="og:url" content="https://funkuniverserecords.com/" />
+  <meta property="og:image" content="https://funkuniverserecords.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="FUNK UNIVERSE logo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FUNK UNIVERSE — Independent Record Label" />
+  <meta name="twitter:description" content="Independent record label for Brazilian funk, phonk and electronic music." />
+  <meta name="twitter:image" content="https://funkuniverserecords.com/og-image.jpg" />
+
+  <!-- Icons -->
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preload" as="image" href="logo.webp" type="image/webp" fetchpriority="high" />
+  <link rel="stylesheet" href="assets/site.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #060606;
-      --surface: #0e0e0e;
-      --line:    rgba(255,255,255,0.07);
-      --silver:  #c8c8c8;
-      --white:   #f0ede8;
-      --muted:   #555;
-      --font-h:  'Barlow Condensed', sans-serif;
-      --font-b:  'Barlow', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-b);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-      /* FIX: cursor:none only on desktop so mobile touch still works */
-    }
-
-    /* ── CUSTOM CURSOR (desktop only) ── */
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      .cursor, .cursor-ring { display: block; }
-    }
-
-    .cursor {
-      display: none;
-      position: fixed;
-      width: 8px; height: 8px;
-      background: var(--white);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-      transition: width .2s, height .2s;
-    }
-    .cursor-ring {
-      display: none;
-      position: fixed;
-      width: 34px; height: 34px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: width .3s, height .3s, border-color .3s;
-    }
-    body:has(a:hover) .cursor-ring,
-    body:has(button:hover) .cursor-ring {
-      width: 54px; height: 54px;
-      border-color: rgba(255,255,255,0.7);
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      /* FIX: raise nav z-index above drawer so it sits on top, but drawer is raised too */
-      z-index: 600;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: linear-gradient(to bottom, rgba(6,6,6,0.97) 60%, transparent);
-    }
-
-    .nav-wordmark {
-      font-family: var(--font-h);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--silver);
-      text-decoration: none;
-    }
-
-    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
-
-    .nav-link {
-      font-family: var(--font-h);
-      font-weight: 400;
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .nav-link:hover { color: var(--white); }
-
-    .nav-cta {
-      font-family: var(--font-h);
-      font-weight: 600;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--white);
-      padding: 0.55rem 1.4rem;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-    .nav-cta:hover { background: #fff; transform: translateY(-1px); }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column; gap: 5px;
-      background: none; border: none;
-      /* FIX: use pointer cursor on mobile, none only on desktop */
-      cursor: pointer;
-      padding: 8px; /* bigger tap target */
-      position: relative;
-      z-index: 601; /* FIX: always above drawer */
-    }
-    @media (hover: hover) and (pointer: fine) {
-      .nav-toggle { cursor: none; }
-    }
-    .nav-toggle span {
-      display: block; width: 22px; height: 1.5px;
-      background: var(--white);
-      transition: all .3s;
-    }
-
-    /* mobile fullscreen drawer */
-    .drawer {
-      position: fixed; inset: 0;
-      background: var(--bg);
-      /* FIX: z-index must be below nav-toggle (601) but above everything else */
-      z-index: 590;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.5rem;
-      opacity: 0; pointer-events: none;
-      transition: opacity .4s;
-    }
-    .drawer.open { opacity: 1; pointer-events: all; }
-    .drawer a {
-      font-family: var(--font-h);
-      font-weight: 700;
-      font-size: clamp(2.8rem, 10vw, 5rem);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-decoration: none;
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .4s, transform .4s, color .2s;
-    }
-    .drawer.open a { opacity: 1; transform: none; }
-    .drawer.open a:nth-child(1) { transition-delay: .05s; }
-    .drawer.open a:nth-child(2) { transition-delay: .10s; }
-    .drawer.open a:nth-child(3) { transition-delay: .15s; }
-    .drawer a:hover { color: var(--muted); }
-
     /* ── HERO ── */
     .hero {
-      /* FIX: 100svh fallback for older browsers */
       min-height: 100vh;
       min-height: 100svh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       position: relative;
       overflow: hidden;
-      padding: 6rem 1rem 4rem;
+      padding: 6rem 1rem 5rem;
     }
 
     /* vignette */
@@ -202,7 +69,7 @@
 
     .hero-glow {
       position: absolute;
-      width: 800px; height: 800px;
+      width: min(800px, 150vw); aspect-ratio: 1;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(200,200,200,0.045) 0%, transparent 70%);
       pointer-events: none;
@@ -210,7 +77,7 @@
     }
     @keyframes glowPulse {
       0%,100% { transform: scale(1);    opacity: .5; }
-      50%      { transform: scale(1.18); opacity: 1; }
+      50%     { transform: scale(1.18); opacity: 1; }
     }
 
     .logo-wrap {
@@ -238,21 +105,24 @@
       letter-spacing: .42em;
       text-transform: uppercase;
       color: var(--muted);
+      text-align: center;
       margin-top: 2.8rem;
       animation: fadeUp 1.6s cubic-bezier(.16,1,.3,1) .35s both;
     }
 
-    .hero-btn {
+    .hero-actions {
       position: relative; z-index: 2;
       margin-top: 2rem;
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
       animation: fadeUp 1.6s cubic-bezier(.16,1,.3,1) .55s both;
     }
 
     .scroll-hint {
-      position: absolute; bottom: 2.5rem; left: 50%;
+      position: absolute; bottom: 2rem; left: 50%;
       transform: translateX(-50%);
       z-index: 2;
       display: flex; flex-direction: column; align-items: center; gap: 8px;
+      text-decoration: none;
       animation: fadeUp 2s ease 1.1s both;
     }
     .scroll-hint span {
@@ -261,56 +131,19 @@
       letter-spacing: .35em;
       color: var(--muted);
       text-transform: uppercase;
+      transition: color .2s;
     }
+    .scroll-hint:hover span { color: var(--white); }
     .scroll-line {
       width: 1px; height: 48px;
       background: linear-gradient(to bottom, var(--muted), transparent);
       animation: lineDrop 2.2s ease-in-out infinite;
     }
     @keyframes lineDrop {
-      0%   { transform: scaleY(0); transform-origin: top; opacity:1; }
-      50%  { transform: scaleY(1); transform-origin: top; opacity:1; }
-      100% { transform: scaleY(1); transform-origin: bottom; opacity:0; }
+      0%   { transform: scaleY(0); transform-origin: top;    opacity: 1; }
+      50%  { transform: scaleY(1); transform-origin: top;    opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
     }
-
-    /* ── BUTTONS ── */
-    .btn {
-      display: inline-flex; align-items: center; gap: .7rem;
-      font-family: var(--font-h);
-      font-weight: 600;
-      font-size: .78rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--bg);
-      background: var(--white);
-      padding: 1rem 2.4rem;
-      border-radius: 2px;
-      border: none;
-      cursor: pointer;
-      transition: background .25s, transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
-    }
-    @media (hover: hover) and (pointer: fine) {
-      .btn { cursor: none; }
-    }
-    .btn:hover {
-      background: #fff;
-      transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(255,255,255,.11);
-    }
-    .btn-ghost {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid var(--line);
-    }
-    .btn-ghost:hover {
-      background: transparent;
-      border-color: rgba(255,255,255,.28);
-      box-shadow: none;
-    }
-
-    /* ── RULE ── */
-    .rule { width: 100%; height: 1px; background: var(--line); }
 
     /* ── FEATURES ── */
     .features {
@@ -341,9 +174,10 @@
       color: var(--muted); margin-bottom: 2rem;
     }
     .feat-icon {
-      font-size: 1.3rem; color: var(--silver); margin-bottom: 1.2rem;
+      color: var(--silver); margin-bottom: 1.2rem;
       transition: transform .3s cubic-bezier(.16,1,.3,1);
     }
+    .feat-icon .i { width: 1.5rem; height: 1.5rem; }
     .feat:hover .feat-icon { transform: scale(1.15); }
     .feat h3 {
       font-family: var(--font-h);
@@ -368,25 +202,6 @@
       padding: 6rem;
       display: flex; flex-direction: column; justify-content: center;
       background: var(--surface);
-    }
-
-    .eyebrow {
-      font-family: var(--font-h);
-      font-weight: 400; font-size: .66rem;
-      letter-spacing: .3em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.4rem;
-    }
-    .big-text {
-      font-family: var(--font-h);
-      font-weight: 700;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      line-height: .95; letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--white); margin-bottom: 1.6rem;
-    }
-    .body-text {
-      font-size: .88rem; color: var(--muted);
-      line-height: 1.75; max-width: 44ch;
     }
     .submit-actions {
       margin-top: 2.4rem;
@@ -415,76 +230,23 @@
       border-right: 1px solid var(--line);
     }
     .legal-item:last-child { border-right: none; }
-    .legal-item h4 {
+    .legal-item h3 {
       font-family: var(--font-h);
       font-size: .62rem; letter-spacing: .25em;
+      font-weight: 400;
       text-transform: uppercase;
       color: var(--muted); margin-bottom: .9rem;
     }
     .legal-item p {
       font-size: .84rem; color: var(--silver); line-height: 1.7;
     }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 2.5rem 3rem;
-      display: flex;
-      align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo {
-      width: 80px;
-      filter: brightness(.4) contrast(1.2);
-      mix-blend-mode: screen;
-    }
-    footer p {
-      font-family: var(--font-h);
-      font-size: .62rem; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--muted);
-    }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a {
-      font-family: var(--font-h);
-      font-size: .62rem; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--muted);
-      text-decoration: none; transition: color .2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-
-    /* ── SCROLL REVEAL ── */
-    /* FIX: Start visible, animate in. Use will-change for performance. */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
-      will-change: opacity, transform;
-    }
-    .reveal.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; }
-    .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; }
-
-    /* FIX: If JS fails or is slow, make content visible after a delay */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: none; }
-    }
+    .legal-item strong { color: var(--white); font-weight: 400; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.8rem; }
-      .nav-link, .nav-cta { display: none; }
-      .nav-toggle { display: flex; }
-
       .features { grid-template-columns: 1fr; }
-      .feat { border-right: none; border-bottom: 1px solid var(--line); }
+      .feat { border-right: none; border-bottom: 1px solid var(--line); padding: 3rem 2rem; }
       .feat:last-child { border-bottom: none; }
-      .feat { padding: 3rem 2rem; }
 
       .submit-section { grid-template-columns: 1fr; }
       .submit-left  { padding: 4rem 2rem; border-right: none; border-bottom: 1px solid var(--line); }
@@ -494,147 +256,164 @@
       .legal-item { border-right: none; border-bottom: 1px solid var(--line); }
       .legal-item:last-child { border-bottom: none; }
       .legal-inner { padding: 0 1.5rem; }
-
-      footer { padding: 2rem 1.5rem; }
-      .footer-links { display: none; }
     }
 
     @media (max-width: 480px) {
-      .submit-actions { flex-direction: column; }
-      .btn { justify-content: center; }
+      .submit-actions, .hero-actions { flex-direction: column; width: 100%; }
+      .scroll-hint { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor"     id="cursor"></div>
-  <div class="cursor-ring" id="cring"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-wordmark">Funk Universe</a>
+  <nav aria-label="Primary">
+    <a href="index.html" class="nav-wordmark">Funk Universe</a>
     <div class="nav-right">
       <a href="#features" class="nav-link">Services</a>
-      <a href="#legal"    class="nav-link">Legal</a>
-      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB"
-   class="nav-link"
-   onclick="window.location.href='spotify:playlist:2JpeRqK5cDngXj25w4k9oB'">
-   Playlist
-     </a>
+      <a href="#legal" class="nav-link">Legal</a>
       <a href="start-your-label.html" class="nav-link">Start Your Label</a>
-      <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
       <a href="support.html" class="nav-link">Support</a>
-      <!-- FIX: button is always clickable, z-index 601 keeps it above drawer -->
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link" target="_blank" rel="noopener">Playlist</a>
+      <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- DRAWER -->
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <a href="#features" onclick="closeDrawer()">Services</a>
-    <a href="#legal"    onclick="closeDrawer()">Legal</a>
-    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB"
-   onclick="window.location.href='spotify:playlist:2JpeRqK5cDngXj25w4k9oB'">
-   Playlist
-   </a>
-    <a href="start-your-label.html" onclick="closeDrawer()">Start Your Label</a>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <a href="#features">Services</a>
+    <a href="#legal">Legal</a>
+    <a href="start-your-label.html">Start Your Label</a>
+    <a href="support.html">Support</a>
+    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" target="_blank" rel="noopener">Playlist</a>
     <a href="submit-demo.html">Submit Demo</a>
-    <a href="support.html" onclick="closeDrawer()">Support</a>
   </div>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-glow"></div>
+  <main id="main">
 
-    <div class="logo-wrap">
-      <img src="logo.png" alt="FUNK UNIVERSE" />
-    </div>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
 
-    <p class="hero-sub">An independent record label</p>
+      <!-- The logo is the page heading; its alt text carries the h1 text. -->
+      <h1 class="logo-wrap">
+        <picture>
+          <source srcset="logo.webp" type="image/webp" />
+          <img src="logo.png" alt="FUNK UNIVERSE" width="1024" height="1024" fetchpriority="high" decoding="async" />
+        </picture>
+      </h1>
 
-    <div class="hero-btn">
-      <a href="submit-demo.html" class="btn">
-        <i class="fas fa-arrow-right"></i> Submit Your Music
+      <p class="hero-sub">An independent record label</p>
+
+      <div class="hero-actions">
+        <a href="submit-demo.html" class="btn">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          Submit Your Music
+        </a>
+        <a href="start-your-label.html" class="btn btn-ghost">Start Your Label</a>
+      </div>
+
+      <a href="#features" class="scroll-hint" aria-label="Scroll to services">
+        <span>Scroll</span>
+        <span class="scroll-line" aria-hidden="true"></span>
       </a>
-    </div>
+    </header>
 
-  </header>
+    <div class="rule"></div>
 
-  <div class="rule"></div>
-
-  <!-- FEATURES -->
-  <section id="features" class="features">
-    <div class="feat reveal">
-      <div class="feat-num">01</div>
-      <div class="feat-icon"><i class="fas fa-globe"></i></div>
-      <h3>Global Reach</h3>
-      <p>Global distribution across all major platforms.</p>
-    </div>
-    <div class="feat reveal d1">
-      <div class="feat-num">02</div>
-      <div class="feat-icon"><i class="fas fa-bolt"></i></div>
-      <h3>Professional Delivery</h3>
-      <p>Fast and reliable release across leading streaming platforms.</p>
-    </div>
-    <div class="feat reveal d2">
-      <div class="feat-num">03</div>
-      <div class="feat-icon"><i class="fas fa-shield-halved"></i></div>
-      <h3>Rights Protected</h3>
-      <p>You keep full ownership of your masters.</p>
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <!-- SUBMIT -->
-  <section class="submit-section" id="submit">
-    <div class="submit-left">
-      <p class="eyebrow reveal">Ready to release?</p>
-      <h2 class="big-text reveal d1">Send Us<br>Your Music</h2>
-      <p class="body-text reveal d2">Every submission goes directly to our team. We carefully review each track before moving forward.</p>
-      <div class="submit-actions reveal d3">
-        <a href="submit-demo.html" class="btn"><i class="fas fa-paper-plane"></i> Submit Now</a>
-        <a href="#legal" class="btn btn-ghost">Legal Info</a>
+    <!-- FEATURES -->
+    <section id="features" class="features" aria-label="What we do">
+      <div class="feat reveal">
+        <div class="feat-num">01</div>
+        <div class="feat-icon">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.5 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3Z"/></svg>
+        </div>
+        <h3>Global Reach</h3>
+        <p>Global distribution across all major platforms.</p>
       </div>
-    </div>
-    <div class="submit-right">
-      <p class="eyebrow reveal">The label</p>
-      <h2 class="big-text reveal d1" style="font-size:clamp(2rem,4vw,3.2rem)">Funk Universe</h2>
-      <p class="body-text reveal d2">
-        Founded by <strong style="color:var(--white);font-weight:400">Albard Basumata</strong>.
-        Independent by choice — focused on building and supporting telented artists.
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <!-- LEGAL -->
-<section class="legal-section" id="legal">
-    <div class="legal-inner">
-      <p class="eyebrow reveal">Transparency</p>
-      <h2 class="big-text reveal d1" style="font-size:clamp(2rem,4vw,3.4rem)">Legal &amp; Copyright</h2>
-      <div class="legal-grid reveal d2">
-        <div class="legal-item">
-          <h4>Label</h4>
-          <p><strong style="color:var(--white);font-weight:400">FUNK UNIVERSE</strong> is a trademark. Do not use it for marketing or reposting without written permission.</p>
+      <div class="feat reveal d1">
+        <div class="feat-num">02</div>
+        <div class="feat-icon">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
         </div>
-        <div class="legal-item">
-          <h4>Ownership</h4>
-          <p>All music, branding, and visual content are owned by FUNK UNIVERSE or the original artist under agreement.</p>
+        <h3>Professional Delivery</h3>
+        <p>Fast and reliable release across leading streaming platforms.</p>
+      </div>
+      <div class="feat reveal d2">
+        <div class="feat-num">03</div>
+        <div class="feat-icon">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5 4.5 5.5v6c0 4.4 3.1 8.3 7.5 9.5 4.4-1.2 7.5-5.1 7.5-9.5v-6L12 2.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
         </div>
-        <div class="legal-item">
-          <h4>Demo Submissions</h4>
-          <p>By submitting, you confirm you are the legal rights-holder. No rights are transferred unless both parties sign a formal agreement.</p>
+        <h3>Rights Protected</h3>
+        <p>You keep full ownership of your masters.</p>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <!-- SUBMIT -->
+    <section class="submit-section" id="submit" aria-label="Submit your music">
+      <div class="submit-left">
+        <p class="eyebrow reveal">Ready to release?</p>
+        <h2 class="big-text reveal d1">Send Us<br>Your Music</h2>
+        <p class="body-text reveal d2">Every submission goes directly to our team. We carefully review each track before moving forward.</p>
+        <div class="submit-actions reveal d3">
+          <a href="submit-demo.html" class="btn">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-8-8-4L21 3Z"/></svg>
+            Submit Now
+          </a>
+          <a href="#legal" class="btn btn-ghost">Legal Info</a>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="submit-right">
+        <p class="eyebrow reveal">The label</p>
+        <h2 class="big-text reveal d1" style="font-size:clamp(2rem,4vw,3.2rem)">Funk Universe</h2>
+        <p class="body-text reveal d2">
+          Founded by <strong>Albard Basumata</strong>.
+          Independent by choice — focused on building and supporting talented artists.
+        </p>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <!-- LEGAL -->
+    <section class="legal-section" id="legal" aria-label="Legal and copyright">
+      <div class="legal-inner">
+        <p class="eyebrow reveal">Transparency</p>
+        <h2 class="big-text reveal d1" style="font-size:clamp(2rem,4vw,3.4rem)">Legal &amp; Copyright</h2>
+        <div class="legal-grid reveal d2">
+          <div class="legal-item">
+            <h3>Label</h3>
+            <p><strong>FUNK UNIVERSE</strong> is a trademark. Do not use it for marketing or reposting without written permission.</p>
+          </div>
+          <div class="legal-item">
+            <h3>Ownership</h3>
+            <p>All music, branding, and visual content are owned by FUNK UNIVERSE or the original artist under agreement.</p>
+          </div>
+          <div class="legal-item">
+            <h3>Demo Submissions</h3>
+            <p>By submitting, you confirm you are the legal rights-holder. No rights are transferred unless both parties sign a formal agreement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    <img src="logo.png" alt="FUNK UNIVERSE" class="footer-logo" />
+    <a href="index.html" aria-label="Funk Universe — home">
+      <img src="logo-160.png" alt="FUNK UNIVERSE" class="footer-logo" width="160" height="160" loading="lazy" decoding="async" />
+    </a>
     <p>&copy; 2026 FUNK UNIVERSE. All rights reserved.</p>
     <ul class="footer-links">
       <li><a href="#features">Services</a></li>
@@ -645,112 +424,34 @@
     </ul>
   </footer>
 
-  
-  <script>
-    // ── Custom cursor (desktop only) ──
-    const isPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (isPointer) {
-  const cur = document.getElementById('cursor');
-  const crg = document.getElementById('cring');
+  <script src="assets/site.js" defer></script>
+  <script src="cookie.js" defer></script>
 
-  if (cur && crg) {
-    cur.style.display = 'block';
-    crg.style.display = 'block';
-
-    let mx=0,my=0,rx=0,ry=0;
-
-    document.addEventListener('mousemove', e => {
-      mx=e.clientX; my=e.clientY;
-      cur.style.left=mx+'px'; cur.style.top=my+'px';
-    });
-
-    (function loop(){
-      rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-      crg.style.left=rx+'px'; crg.style.top=ry+'px';
-      requestAnimationFrame(loop);
-    })();
-  }
-    }
-    // ── Drawer / Hamburger menu ──
-    const drawer  = document.getElementById('drawer');
-    const toggler = document.getElementById('navToggle');
-
-    function openDrawer() {
-      drawer.classList.add('open');
-      toggler.setAttribute('aria-expanded', 'true');
-      toggler.children[0].style.transform = 'rotate(45deg) translate(5px,5px)';
-      toggler.children[1].style.opacity   = '0';
-      toggler.children[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
-      // Prevent page scroll while drawer is open
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDrawer() {
-      drawer.classList.remove('open');
-      toggler.setAttribute('aria-expanded', 'false');
-      toggler.children[0].style.transform = '';
-      toggler.children[1].style.opacity   = '1';
-      toggler.children[2].style.transform = '';
-      document.body.style.overflow = '';
-    }
-
-    toggler.addEventListener('click', () => {
-      if (drawer.classList.contains('open')) {
-        closeDrawer();
-      } else {
-        openDrawer();
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://funkuniverserecords.com/#organization",
+        "name": "FUNK UNIVERSE",
+        "url": "https://funkuniverserecords.com/",
+        "logo": "https://funkuniverserecords.com/icon-512.png",
+        "image": "https://funkuniverserecords.com/og-image.jpg",
+        "description": "Independent record label for Brazilian funk, phonk and electronic music.",
+        "founder": { "@type": "Person", "name": "Albard Basumata" },
+        "sameAs": ["https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://funkuniverserecords.com/#website",
+        "url": "https://funkuniverserecords.com/",
+        "name": "FUNK UNIVERSE",
+        "publisher": { "@id": "https://funkuniverserecords.com/#organization" }
       }
-    });
-
-    // Close drawer on Escape key
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
-    });
-
-    // ── Scroll reveal ──
-    // FIX: threshold lowered to 0.05 so elements trigger earlier on mobile.
-    // Also use rootMargin to trigger slightly before element enters viewport.
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // FIX: Fallback — if IntersectionObserver never fires (e.g. very old browser),
-    // make all .reveal elements visible after 2 seconds.
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.in)').forEach(el => {
-        el.classList.add('in');
-      });
-    }, 2000);
+    ]
+  }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script>
-(function(){
-  emailjs.init(n0VPNf5P4M6yJN_iK);
-})();
-
-document.getElementById("demoForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  emailjs.send("service_1nxlw2b", "template_onupech", {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    track: document.getElementById("track").value
-  })
-  .then(function() {
-    alert("Demo submitted successfully! Check your email.");
-  }, function() {
-    alert("Something went wrong. Try again.");
-  });
-});
-</script>
-  <script src="cookie.js"></script>
 </body>
 </html>

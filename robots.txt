@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The application form has nothing useful to index.
+Disallow: /label-application.html
+
+Sitemap: https://funkuniverserecords.com/sitemap.xml

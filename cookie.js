@@ -1,6 +1,19 @@
 (function () {
   var COOKIE_KEY = 'fu_cookie_consent';
-  if (localStorage.getItem(COOKIE_KEY)) return;
+
+  // Private-mode Safari throws on localStorage; the banner must not take
+  // the rest of the page down with it.
+  var store = {
+    get: function () { try { return localStorage.getItem(COOKIE_KEY); } catch (e) { return null; } },
+    set: function (v) { try { localStorage.setItem(COOKIE_KEY, v); } catch (e) {} }
+  };
+
+  if (store.get()) return;
+
+  // The legal section lives on the home page, so link there from every page
+  // rather than to a bare "#legal" that only resolves on the home page.
+  var onHome = /(^\/$|\/index\.html$)/.test(location.pathname);
+  var legalHref = onHome ? '#legal' : '/index.html#legal';
 
   // ── Inject styles ──
   var style = document.createElement('style');
@@ -10,7 +23,9 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%) translateY(120%);
-      z-index: 9000;
+      /* Below the nav (600) and drawer (590) so the fullscreen mobile menu
+         covers the banner instead of the banner floating on top of it. */
+      z-index: 500;
       width: min(680px, calc(100vw - 2rem));
       background: #0e0e0e;
       border: 1px solid rgba(255,255,255,0.09);
@@ -48,7 +63,7 @@
       font-family: 'Barlow', sans-serif;
       font-weight: 300;
       font-size: .78rem;
-      color: #555;
+      color: #8a8a8a;
       line-height: 1.6;
     }
     .fu-cookie-desc a {
@@ -86,7 +101,7 @@
     }
     .fu-cookie-decline {
       background: transparent;
-      color: #555;
+      color: #8a8a8a;
       border: 1px solid rgba(255,255,255,0.07);
     }
     .fu-cookie-decline:hover {
@@ -113,7 +128,7 @@
       <span class="fu-cookie-desc">
         We use cookies to ensure basic functionality and improve your experience.
         By continuing, you agree to our use of cookies.
-        <a href="#legal">Learn more</a>
+        <a href="${legalHref}">Learn more</a>
       </span>
     </div>
     <div class="fu-cookie-actions">
@@ -128,12 +143,15 @@
     banner.classList.add('show');
   }, 1200);
 
-  // ── Auto-hide after 10 seconds if no action ──
+  // ── Auto-hide after 15 seconds if no action ──
   setTimeout(function () {
-    if (!localStorage.getItem(COOKIE_KEY)) {
-      hideBanner();
-    }
-  }, 10000);
+    if (!store.get()) hideBanner();
+  }, 15000);
+
+  // Escape dismisses the banner without recording a choice.
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && banner.parentNode) hideBanner();
+  });
 
   // ── Hide banner ──
   function hideBanner() {
@@ -146,13 +164,13 @@
 
   // ── Accept ──
   document.getElementById('fuCookieAccept').addEventListener('click', function () {
-    localStorage.setItem(COOKIE_KEY, 'accepted');
+    store.set('accepted');
     hideBanner();
   });
 
   // ── Decline ──
   document.getElementById('fuCookieDecline').addEventListener('click', function () {
-    localStorage.setItem(COOKIE_KEY, 'declined');
+    store.set('declined');
     hideBanner();
   });
 

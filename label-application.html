@@ -3,130 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#060606" />
+
   <title>Label Setup Application — FUNK UNIVERSE</title>
+  <meta name="description" content="Apply for access to FUNK UNIVERSE label infrastructure. Applications are reviewed on clarity, intent and long-term vision." />
+  <link rel="canonical" href="https://funkuniverserecords.com/label-application.html" />
+  <meta name="robots" content="noindex, follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FUNK UNIVERSE" />
+  <meta property="og:title" content="Label Setup Application — FUNK UNIVERSE" />
+  <meta property="og:description" content="Apply for access to FUNK UNIVERSE label infrastructure." />
+  <meta property="og:url" content="https://funkuniverserecords.com/label-application.html" />
+  <meta property="og:image" content="https://funkuniverserecords.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://funkuniverserecords.com/og-image.jpg" />
+
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/site.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #060606;
-      --surface: #0e0e0e;
-      --surface2: #111;
-      --line:    rgba(255,255,255,0.07);
-      --line-focus: rgba(255,255,255,0.3);
-      --silver:  #c8c8c8;
-      --white:   #f0ede8;
-      --muted:   #555;
-      --font-h:  'Barlow Condensed', sans-serif;
-      --font-b:  'Barlow', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-b);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      .cursor, .cursor-ring { display: block; }
-    }
-
-    .cursor {
-      display: none; position: fixed;
-      width: 8px; height: 8px;
-      background: var(--white); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-    }
-    .cursor-ring {
-      display: none; position: fixed;
-      width: 34px; height: 34px;
-      border: 1px solid rgba(255,255,255,0.35); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: width .3s, height .3s, border-color .3s;
-    }
-    body:has(a:hover) .cursor-ring,
-    body:has(button:hover) .cursor-ring,
-    body:has(label:hover) .cursor-ring {
-      width: 54px; height: 54px; border-color: rgba(255,255,255,0.7);
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 600;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: linear-gradient(to bottom, rgba(6,6,6,0.97) 60%, transparent);
-    }
-    .nav-wordmark {
-      font-family: var(--font-h); font-weight: 700; font-size: 1rem;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--silver); text-decoration: none;
-    }
-    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-link {
-      font-family: var(--font-h); font-weight: 400; font-size: 0.72rem;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; transition: color .2s;
-    }
-    .nav-link:hover { color: var(--white); }
-    .nav-cta {
-      font-family: var(--font-h); font-weight: 600; font-size: 0.72rem;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--bg); background: var(--white);
-      padding: 0.55rem 1.4rem; border-radius: 2px; text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-    .nav-cta:hover { background: #fff; transform: translateY(-1px); }
-    .nav-toggle {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer;
-      padding: 8px; position: relative; z-index: 601;
-    }
-    @media (hover: hover) and (pointer: fine) { .nav-toggle { cursor: none; } }
-    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: all .3s; }
-    .drawer {
-      position: fixed; inset: 0; background: var(--bg); z-index: 590;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.5rem;
-      opacity: 0; pointer-events: none; transition: opacity .4s;
-    }
-    .drawer.open { opacity: 1; pointer-events: all; }
-    .drawer a {
-      font-family: var(--font-h); font-weight: 700;
-      font-size: clamp(2.8rem, 10vw, 5rem);
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .4s, transform .4s, color .2s;
-    }
-    .drawer.open a { opacity: 1; transform: none; }
-    .drawer.open a:nth-child(1) { transition-delay: .05s; }
-    .drawer.open a:nth-child(2) { transition-delay: .10s; }
-    .drawer.open a:nth-child(3) { transition-delay: .15s; }
-    .drawer.open a:nth-child(4) { transition-delay: .20s; }
-    .drawer.open a:nth-child(5) { transition-delay: .25s; }
-    .drawer a:hover { color: var(--muted); }
-
     /* ── PAGE LAYOUT ── */
     .page-wrap {
       display: grid;
       grid-template-columns: 38% 1fr;
       min-height: 100vh;
-      padding-top: 0;
     }
 
     /* LEFT PANEL — sticky info */
@@ -155,37 +62,43 @@
       pointer-events: none; user-select: none;
     }
 
-    .eyebrow {
-      font-family: var(--font-h); font-size: .66rem;
-      letter-spacing: .35em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.2rem;
+    .panel-left .eyebrow {
+      font-size: .66rem; letter-spacing: .35em;
+      margin-bottom: 1.2rem;
       position: relative; z-index: 1;
     }
     .panel-title {
       font-family: var(--font-h); font-weight: 700;
-      font-size: clamp(3rem, 4.5vw, 5rem);
+      /* "APPLICATION" is the widest word and has to fit the 38% column. */
+      font-size: clamp(2.2rem, 3.5vw, 4.2rem);
       line-height: .9; letter-spacing: .02em;
       text-transform: uppercase; color: var(--white);
       margin-bottom: 1.6rem;
       position: relative; z-index: 1;
     }
-    .panel-desc {
-      font-size: .86rem; color: var(--muted);
-      line-height: 1.75; max-width: 36ch;
+    .panel-note {
+      font-family: var(--font-h);
+      font-size: .62rem;
+      letter-spacing: .22em;
+      line-height: 2;
+      text-transform: uppercase;
+      color: var(--muted-dim);
+      max-width: 34ch;
       position: relative; z-index: 1;
     }
-    .panel-note {
-  margin-top: 2rem;
-  margin-bottom: 2rem; /* ADD THIS */
-  font-family: var(--font-h);
-  font-size: .6rem;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  opacity: .4;
-  position: relative;
-  z-index: 1;
-}
+    .panel-back {
+      margin-top: 2.4rem;
+      position: relative; z-index: 1;
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-family: var(--font-h);
+      font-size: .64rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+      align-self: flex-start;
+    }
+    .panel-back:hover { color: var(--white); }
+    .panel-back .i { width: .9rem; height: .9rem; }
 
     /* progress dots */
     .progress-dots {
@@ -201,11 +114,10 @@
 
     /* ── RIGHT PANEL — form ── */
     .panel-right {
-      padding: 8rem 6rem 6rem 6rem;
+      padding: 8rem 6rem 6rem;
       background: var(--surface);
     }
 
-    /* section dividers */
     .form-section {
       padding-bottom: 3rem;
       margin-bottom: 3rem;
@@ -223,72 +135,34 @@
       content: ''; flex: 1; height: 1px; background: var(--line);
     }
 
-    /* fields */
-    .field-group { display: grid; gap: 1.4rem; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
 
-    .field { display: flex; flex-direction: column; gap: .5rem; }
-    .field label {
-      font-family: var(--font-h); font-size: .62rem;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--muted);
-    }
-    .field input,
-    .field select,
-    .field textarea {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      color: var(--white);
-      font-family: var(--font-b);
-      font-weight: 300;
-      font-size: .88rem;
-      padding: .85rem 1rem;
-      outline: none;
-      transition: border-color .25s, background .25s;
-      appearance: none;
-      -webkit-appearance: none;
-      width: 100%;
-    }
-    .field input::placeholder,
-    .field textarea::placeholder { color: var(--muted); opacity: .5; }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: var(--line-focus);
-      background: rgba(255,255,255,.02);
-    }
-    .field textarea { resize: vertical; min-height: 100px; }
-
-    /* select arrow */
-    .field select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23555' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      padding-right: 2.5rem;
-      cursor: pointer;
-    }
-    @media (hover: hover) and (pointer: fine) { .field select { cursor: none; } }
-    .field select option { background: #111; color: var(--white); }
-
     /* radio / toggle group */
-    .toggle-group { display: flex; gap: .6rem; flex-wrap: wrap; }
-    .toggle-group input[type="radio"],
-    .toggle-group input[type="checkbox"] { display: none; }
+    .toggle-group { display: flex; gap: .6rem; flex-wrap: wrap; position: relative; }
+    .toggle-group input[type="radio"] {
+      /* Hidden visually but kept focusable and in the a11y tree, unlike
+         `display: none`. Pinned to the group's own corner with pointer
+         events off, so it can never sit on top of a sibling label. */
+      position: absolute; top: 0; left: 0;
+      width: 1px; height: 1px; margin: 0;
+      opacity: 0; pointer-events: none;
+    }
     .toggle-group label {
       font-family: var(--font-h); font-size: .68rem;
       letter-spacing: .18em; text-transform: uppercase;
       color: var(--muted);
       border: 1px solid var(--line);
       border-radius: 2px;
-      padding: .55rem 1.1rem;
+      padding: .6rem 1.1rem;
       cursor: pointer;
       transition: border-color .2s, color .2s, background .2s;
     }
-    @media (hover: hover) and (pointer: fine) { .toggle-group label { cursor: none; } }
     .toggle-group input:checked + label {
       border-color: var(--white); color: var(--white);
       background: rgba(255,255,255,.04);
+    }
+    .toggle-group input:focus-visible + label {
+      outline: 2px solid var(--white); outline-offset: 3px;
     }
     .toggle-group label:hover { border-color: rgba(255,255,255,.25); color: var(--silver); }
 
@@ -297,21 +171,20 @@
     .check-item { display: flex; align-items: flex-start; gap: .9rem; }
     .check-item input[type="checkbox"] {
       appearance: none; -webkit-appearance: none;
-      width: 16px; height: 16px; flex-shrink: 0;
+      width: 18px; height: 18px; flex-shrink: 0;
       border: 1px solid var(--line);
       border-radius: 2px; background: var(--bg);
-      cursor: pointer; margin-top: .15rem;
+      cursor: pointer; margin-top: .1rem;
       transition: border-color .2s, background .2s;
       position: relative;
     }
-    @media (hover: hover) and (pointer: fine) { .check-item input[type="checkbox"] { cursor: none; } }
     .check-item input[type="checkbox"]:checked {
       background: var(--white); border-color: var(--white);
     }
     .check-item input[type="checkbox"]:checked::after {
       content: '';
-      position: absolute; top: 2px; left: 5px;
-      width: 4px; height: 8px;
+      position: absolute; top: 2px; left: 6px;
+      width: 4px; height: 9px;
       border: 1.5px solid var(--bg);
       border-top: none; border-left: none;
       transform: rotate(45deg);
@@ -320,32 +193,16 @@
       font-size: .84rem; color: var(--muted); line-height: 1.5;
       cursor: pointer;
     }
-    @media (hover: hover) and (pointer: fine) { .check-item label { cursor: none; } }
+    .check-list.invalid input[type="checkbox"] { border-color: var(--error); }
+    .check-list + .field-error { margin-top: .9rem; }
+    .check-list.invalid + .field-error { display: block; }
 
-    /* country search */
+    /* country combobox */
     .country-wrap { position: relative; }
-    .country-wrap input[type="text"] {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      color: var(--white);
-      font-family: var(--font-b);
-      font-weight: 300;
-      font-size: .88rem;
-      padding: .85rem 1rem;
-      outline: none;
-      width: 100%;
-      transition: border-color .25s, background .25s;
-    }
-    .country-wrap input[type="text"]::placeholder { color: var(--muted); opacity: .5; }
-    .country-wrap input[type="text"]:focus {
-      border-color: var(--line-focus);
-      background: rgba(255,255,255,.02);
-    }
     .country-dropdown {
       display: none;
       position: absolute; top: calc(100% + 4px); left: 0; right: 0;
-      background: #111;
+      background: var(--surface2);
       border: 1px solid var(--line);
       border-radius: 2px;
       max-height: 220px;
@@ -355,39 +212,26 @@
       scrollbar-color: var(--muted) transparent;
     }
     .country-dropdown.open { display: block; }
-    .country-dropdown div {
+    .country-dropdown li {
+      list-style: none;
       padding: .7rem 1rem;
       font-size: .86rem;
       color: var(--muted);
       cursor: pointer;
       transition: background .15s, color .15s;
     }
-    @media (hover: hover) and (pointer: fine) { .country-dropdown div { cursor: none; } }
-    .country-dropdown div:hover,
-    .country-dropdown div.highlighted { background: rgba(255,255,255,.04); color: var(--white); }
-    .country-dropdown div.no-result { color: var(--muted); opacity: .4; pointer-events: none; }
+    .country-dropdown li:hover,
+    .country-dropdown li[aria-selected="true"] {
+      background: rgba(255,255,255,.05); color: var(--white);
+    }
+    .country-dropdown li.no-result { color: var(--muted-dim); cursor: default; }
 
     /* submit row */
     .submit-row {
       margin-top: 3rem;
       display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
     }
-    .btn {
-      display: inline-flex; align-items: center; gap: .7rem;
-      font-family: var(--font-h); font-weight: 600; font-size: .78rem;
-      letter-spacing: .22em; text-transform: uppercase;
-      text-decoration: none; color: var(--bg); background: var(--white);
-      padding: 1rem 2.4rem; border-radius: 2px; border: none; cursor: pointer;
-      transition: background .25s, transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
-    }
-    @media (hover: hover) and (pointer: fine) { .btn { cursor: none; } }
-    .btn:hover {
-      background: #fff; transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(255,255,255,.11);
-    }
-    .submit-note {
-      font-size: .78rem; color: var(--muted); line-height: 1.5;
-    }
+    .submit-note { font-size: .78rem; color: var(--muted); line-height: 1.5; }
 
     /* ── SUCCESS STATE ── */
     .success-overlay {
@@ -399,12 +243,13 @@
     }
     .success-overlay.show { display: flex; }
     .success-icon {
-      font-size: 2.5rem; color: var(--silver); margin-bottom: 2rem;
+      color: var(--silver); margin-bottom: 2rem;
       animation: fadeUp .8s cubic-bezier(.16,1,.3,1) both;
     }
+    .success-icon .i { width: 2.5rem; height: 2.5rem; }
     .success-title {
       font-family: var(--font-h); font-weight: 700;
-      font-size: clamp(3rem, 6vw, 6rem);
+      font-size: clamp(2.6rem, 6vw, 6rem);
       line-height: .95; letter-spacing: .04em;
       text-transform: uppercase; color: var(--white);
       margin-bottom: 1.2rem;
@@ -415,176 +260,162 @@
       max-width: 38ch; margin-bottom: 2.4rem;
       animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .2s both;
     }
-    .success-overlay a {
-      animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .3s both;
-    }
-    .rule { width: 100%; height: 1px; background: var(--line); }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 2.5rem 3rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo { width: 80px; filter: brightness(.4) contrast(1.2); mix-blend-mode: screen; }
-    footer p { font-family: var(--font-h); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { font-family: var(--font-h); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: var(--white); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: none; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-    }
+    .success-overlay .btn { animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .3s both; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .panel-left { padding: 7rem 3rem 4rem 3rem; }
-      .panel-right { padding: 7rem 3rem 5rem 3rem; }
+    @media (max-width: 1200px) {
+      .panel-left  { padding: 7rem 3rem 4rem; }
+      .panel-right { padding: 7rem 3rem 5rem; }
     }
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.8rem; }
-      .nav-link, .nav-cta { display: none; }
-      .nav-toggle { display: flex; }
-
       .page-wrap { grid-template-columns: 1fr; }
       .panel-left {
         position: relative; height: auto;
-        padding: 8rem 2rem 4rem;
+        padding: 7rem 1.5rem 3rem;
         border-right: none; border-bottom: 1px solid var(--line);
       }
       .panel-bg-num { display: none; }
-      .panel-right { padding: 4rem 2rem 5rem; }
+      .panel-right { padding: 3rem 1.5rem 5rem; }
       .field-row { grid-template-columns: 1fr; }
-      footer { padding: 2rem 1.5rem; }
-      .footer-links { display: none; }
     }
     @media (max-width: 480px) {
-      .submit-row { flex-direction: column; align-items: flex-start; }
-      .btn { width: 100%; justify-content: center; }
+      .submit-row { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cring"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav>
+  <nav aria-label="Primary">
     <a href="index.html" class="nav-wordmark">Funk Universe</a>
     <div class="nav-right">
       <a href="index.html#features" class="nav-link">Services</a>
       <a href="index.html#legal" class="nav-link">Legal</a>
-      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link">Playlist</a>
-      <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
+      <a href="start-your-label.html" class="nav-link">Start Your Label</a>
       <a href="support.html" class="nav-link">Support</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link" target="_blank" rel="noopener">Playlist</a>
+      <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- DRAWER -->
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <a href="index.html" onclick="closeDrawer()">Home</a>
-    <a href="index.html#features" onclick="closeDrawer()">Services</a>
-    <a href="index.html#legal" onclick="closeDrawer()">Legal</a>
-    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB">Playlist</a>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Services</a>
+    <a href="index.html#legal">Legal</a>
+    <a href="start-your-label.html">Start Your Label</a>
+    <a href="support.html">Support</a>
+    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" target="_blank" rel="noopener">Playlist</a>
     <a href="submit-demo.html">Submit Demo</a>
-    <a href="support.html" onclick="closeDrawer()">Support</a>
   </div>
 
   <!-- SUCCESS OVERLAY -->
   <div class="success-overlay" id="successOverlay" role="status" aria-live="polite">
-    <div class="success-icon"><i class="fas fa-check"></i></div>
+    <div class="success-icon">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m4 12.5 5.5 5.5L20 7"/></svg>
+    </div>
     <h2 class="success-title">Application<br>Received</h2>
     <p class="success-text">Your application has been received. If approved, you will be contacted with next steps.</p>
-    <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    <a href="index.html" class="btn" id="successHome">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+      Back to Home
+    </a>
   </div>
 
   <!-- MAIN -->
-  <main class="page-wrap">
+  <main class="page-wrap" id="main">
 
     <!-- LEFT PANEL -->
     <aside class="panel-left">
-      <div class="panel-bg-num">02</div>
+      <div class="panel-bg-num" aria-hidden="true">02</div>
       <p class="eyebrow">Funk Universe — Application</p>
-      <div class="progress-dots" id="progressDots">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="progress-dots" id="progressDots" aria-hidden="true">
+        <span class="active"></span><span></span><span></span><span></span><span></span>
       </div>
       <h1 class="panel-title">Label Setup<br>Application</h1>
-      <p class="panel-note" style="margin-top:1rem; margin-bottom:2rem;">
-Applications are reviewed based on clarity, intent, and long term vision. Not all submissions are accepted.
+      <p class="panel-note">
+        Applications are reviewed based on clarity, intent, and long term vision. Not all submissions are accepted.
       </p>
+      <a href="start-your-label.html" class="panel-back">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+        Back to Start Your Label
+      </a>
+    </aside>
 
     <!-- RIGHT PANEL — FORM -->
     <div class="panel-right">
       <form id="labelForm" novalidate>
 
         <!-- SECTION 1: BASIC INFO -->
-         <div class="form-section" data-section="1">
-          <div class="form-section-label">01 — Basic Information</div>
+        <div class="form-section" data-section="1">
+          <h2 class="form-section-label">01 — Basic Information</h2>
           <div class="field-group">
             <div class="field-row">
               <div class="field">
                 <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+                <input type="text" id="fullName" name="fullName" placeholder="Your full name" autocomplete="name" required />
+                <span class="field-error">Please enter your full name</span>
               </div>
               <div class="field">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+                <span class="field-error">Please enter a valid email address</span>
               </div>
             </div>
             <div class="field">
               <label for="countrySearch">Country</label>
               <div class="country-wrap">
-                <input type="text" id="countrySearch" placeholder="Search country..." autocomplete="off" />
-                <input type="hidden" id="country" name="country" required />
-                <div class="country-dropdown" id="countryDropdown"></div>
+                <input type="text" id="countrySearch" placeholder="Search country..."
+                       role="combobox" aria-expanded="false" aria-controls="countryDropdown"
+                       aria-autocomplete="list" autocomplete="off" />
+                <input type="hidden" id="country" name="country" />
+                <ul class="country-dropdown" id="countryDropdown" role="listbox" aria-label="Countries"></ul>
               </div>
+              <span class="field-error">Please choose a country from the list</span>
             </div>
           </div>
         </div>
 
         <!-- SECTION 2: LABEL DETAILS -->
         <div class="form-section" data-section="2">
-          <div class="form-section-label">02 — Label Details</div>
+          <h2 class="form-section-label">02 — Label Details</h2>
           <div class="field-group">
             <div class="field">
               <label for="labelName">Label Name (or planned name)</label>
               <input type="text" id="labelName" name="labelName" placeholder="Your label name" required />
+              <span class="field-error">Please enter a label name</span>
             </div>
-            <div class="field">
-              <label>Have you already started your label?</label>
+            <fieldset class="field">
+              <legend>Have you already started your label?</legend>
               <div class="toggle-group">
                 <input type="radio" name="labelStarted" id="labelYes" value="yes" />
                 <label for="labelYes">Yes</label>
                 <input type="radio" name="labelStarted" id="labelNo" value="no" />
                 <label for="labelNo">No</label>
               </div>
-            </div>
+            </fieldset>
             <div class="field">
               <label for="labelVision">Describe your label vision</label>
               <textarea id="labelVision" name="labelVision" placeholder="What is your label about? Genre, sound, direction..." required></textarea>
+              <span class="field-error">Please describe your label vision</span>
             </div>
           </div>
         </div>
 
         <!-- SECTION 3: EXPERIENCE -->
         <div class="form-section" data-section="3">
-          <div class="form-section-label">03 — Experience</div>
+          <h2 class="form-section-label">03 — Experience</h2>
           <div class="field-group">
-            <div class="field">
-              <label>Are you currently:</label>
+            <fieldset class="field">
+              <legend>Are you currently:</legend>
               <div class="toggle-group">
                 <input type="radio" name="role" id="roleArtist" value="artist" />
                 <label for="roleArtist">Artist</label>
@@ -595,17 +426,17 @@ Applications are reviewed based on clarity, intent, and long term vision. Not al
                 <input type="radio" name="role" id="roleNone" value="none" />
                 <label for="roleNone">None</label>
               </div>
-            </div>
-            <div class="field">
-              <label>Do you have released music?</label>
+            </fieldset>
+            <fieldset class="field">
+              <legend>Do you have released music?</legend>
               <div class="toggle-group">
                 <input type="radio" name="hasReleases" id="relYes" value="yes" />
                 <label for="relYes">Yes</label>
                 <input type="radio" name="hasReleases" id="relNo" value="no" />
                 <label for="relNo">No</label>
               </div>
-            </div>
-            <div class="field" id="linksField" style="display:none;">
+            </fieldset>
+            <div class="field" id="linksField" hidden>
               <label for="links">Paste links (Spotify, YouTube, etc.)</label>
               <textarea id="links" name="links" placeholder="https://open.spotify.com/...&#10;https://youtube.com/..."></textarea>
             </div>
@@ -614,23 +445,25 @@ Applications are reviewed based on clarity, intent, and long term vision. Not al
 
         <!-- SECTION 4: INTENT -->
         <div class="form-section" data-section="4">
-          <div class="form-section-label">04 — Intent &amp; Seriousness</div>
+          <h2 class="form-section-label">04 — Intent &amp; Seriousness</h2>
           <div class="field-group">
             <div class="field">
               <label for="whyLabel">Why do you want to start a label?</label>
               <textarea id="whyLabel" name="whyLabel" placeholder="Be specific — what drives this decision?" required></textarea>
+              <span class="field-error">Please answer this question</span>
             </div>
             <div class="field">
               <label for="longTermGoal">What is your long-term goal?</label>
               <textarea id="longTermGoal" name="longTermGoal" placeholder="Where do you see the label in 3–5 years?" required></textarea>
+              <span class="field-error">Please answer this question</span>
             </div>
           </div>
         </div>
 
         <!-- SECTION 5: CONFIRMATION -->
         <div class="form-section" data-section="5">
-          <div class="form-section-label">05 — Confirmation</div>
-          <div class="check-list">
+          <h2 class="form-section-label">05 — Confirmation</h2>
+          <div class="check-list" id="checkList">
             <div class="check-item">
               <input type="checkbox" id="confirmReview" name="confirmReview" required />
               <label for="confirmReview">I understand this is not instant access and may require review</label>
@@ -640,181 +473,269 @@ Applications are reviewed based on clarity, intent, and long term vision. Not al
               <label for="confirmAccurate">I confirm all information provided is accurate</label>
             </div>
           </div>
+          <span class="field-error" id="checkError">Please confirm both statements before submitting</span>
+        </div>
+
+        <!-- Honeypot -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="companyUrl">Company URL</label>
+          <input type="text" id="companyUrl" name="companyUrl" tabindex="-1" autocomplete="off" />
         </div>
 
         <!-- SUBMIT -->
         <div class="submit-row">
           <button type="submit" class="btn" id="submitBtn">
-            <i class="fas fa-paper-plane"></i> Submit Application
+            <svg class="i" id="submitIcon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-8-8-4L21 3Z"/></svg>
+            <span id="submitLabel">Submit Application</span>
           </button>
           <p class="submit-note">Your application will be<br>reviewed by our team.</p>
         </div>
+
+        <p class="form-status" id="formStatus" role="alert"></p>
 
       </form>
     </div>
   </main>
 
   <div class="rule"></div>
+
   <footer>
-    <img src="logo.png" alt="FUNK UNIVERSE" class="footer-logo" />
+    <a href="index.html" aria-label="Funk Universe — home">
+      <img src="logo-160.png" alt="FUNK UNIVERSE" class="footer-logo" width="160" height="160" loading="lazy" decoding="async" />
+    </a>
     <p>&copy; 2026 FUNK UNIVERSE. All rights reserved.</p>
     <ul class="footer-links">
       <li><a href="index.html#features">Services</a></li>
       <li><a href="index.html#legal">Legal</a></li>
       <li><a href="submit-demo.html">Submit Demo</a></li>
+      <li><a href="support.html">Support</a></li>
     </ul>
   </footer>
 
+  <script src="assets/site.js" defer></script>
+  <script src="cookie.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+
   <script>
-    // ── Custom cursor ──
-    const isPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (isPointer) {
-      const cur = document.getElementById('cursor');
-      const crg = document.getElementById('cring');
-      if (cur && crg) {
-        cur.style.display = 'block'; crg.style.display = 'block';
-        let mx=0,my=0,rx=0,ry=0;
-        document.addEventListener('mousemove', e => {
-          mx=e.clientX; my=e.clientY;
-          cur.style.left=mx+'px'; cur.style.top=my+'px';
+  window.addEventListener('DOMContentLoaded', function () {
+    // Guarded: if the EmailJS CDN is blocked or down, an unguarded call here
+    // would throw and take the country picker and validation down with it.
+    var mailer = typeof emailjs !== 'undefined' ? emailjs : null;
+    if (mailer) mailer.init('n0VPNf5P4M6yJN_iK');
+
+    var form   = document.getElementById('labelForm');
+    var btn    = document.getElementById('submitBtn');
+    var icon   = document.getElementById('submitIcon');
+    var label  = document.getElementById('submitLabel');
+    var status = document.getElementById('formStatus');
+
+    FU.watchFields(form);
+
+    /* ── Progress dots follow the section in view ── */
+    var dots = document.querySelectorAll('#progressDots span');
+    var sections = document.querySelectorAll('.form-section');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var idx = parseInt(entry.target.dataset.section, 10) - 1;
+          dots.forEach(function (d, i) { d.classList.toggle('active', i <= idx); });
         });
-        (function loop(){
-          rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-          crg.style.left=rx+'px'; crg.style.top=ry+'px';
-          requestAnimationFrame(loop);
-        })();
-      }
+      }, { threshold: 0.5 });
+      sections.forEach(function (s) { io.observe(s); });
     }
 
-    // ── Drawer ──
-    const drawer  = document.getElementById('drawer');
-    const toggler = document.getElementById('navToggle');
-    function openDrawer() {
-      drawer.classList.add('open');
-      toggler.setAttribute('aria-expanded', 'true');
-      toggler.children[0].style.transform = 'rotate(45deg) translate(5px,5px)';
-      toggler.children[1].style.opacity   = '0';
-      toggler.children[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeDrawer() {
-      drawer.classList.remove('open');
-      toggler.setAttribute('aria-expanded', 'false');
-      toggler.children[0].style.transform = '';
-      toggler.children[1].style.opacity   = '1';
-      toggler.children[2].style.transform = '';
-      document.body.style.overflow = '';
-    }
-    toggler.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(); });
-
-    // ── Progress dots — update as user scrolls through sections ──
-    const dots    = document.querySelectorAll('#progressDots span');
-    const sections = document.querySelectorAll('.form-section');
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const idx = parseInt(e.target.dataset.section) - 1;
-          dots.forEach((d, i) => d.classList.toggle('active', i <= idx));
-        }
-      });
-    }, { threshold: 0.5 });
-    sections.forEach(s => io.observe(s));
-
-    // ── Show/hide links field based on released music toggle ──
-    document.querySelectorAll('input[name="hasReleases"]').forEach(r => {
-      r.addEventListener('change', () => {
-        const linksField = document.getElementById('linksField');
-        linksField.style.display = r.value === 'yes' && r.checked ? 'flex' : 'none';
+    /* ── Links field only matters if there is released music ── */
+    var linksField = document.getElementById('linksField');
+    var linksInput = document.getElementById('links');
+    document.querySelectorAll('input[name="hasReleases"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        var show = radio.value === 'yes' && radio.checked;
+        linksField.hidden = !show;
+        if (!show) linksInput.value = '';
       });
     });
 
-    // ── Form submit ──
-    document.getElementById('labelForm').addEventListener('submit', function(e) {
+    /* ── Country combobox ────────────────────────────────────────────────
+       Keyboard-operable: arrows move the highlight, Enter picks, Escape
+       closes. The old version only responded to mousedown. */
+    var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua & Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Congo (Democratic Republic)","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Ivory Coast","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Samoa","San Marino","Sao Tome & Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent & the Grenadines","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];
+
+    var search   = document.getElementById('countrySearch');
+    var hidden   = document.getElementById('country');
+    var dropdown = document.getElementById('countryDropdown');
+    var active   = -1;
+
+    function openList(open) {
+      dropdown.classList.toggle('open', open);
+      search.setAttribute('aria-expanded', String(open));
+      if (!open) { active = -1; search.removeAttribute('aria-activedescendant'); }
+    }
+
+    function highlight(index) {
+      var options = dropdown.querySelectorAll('li:not(.no-result)');
+      if (!options.length) return;
+      active = (index + options.length) % options.length;
+      options.forEach(function (opt, i) {
+        var on = i === active;
+        opt.setAttribute('aria-selected', String(on));
+        if (on) {
+          search.setAttribute('aria-activedescendant', opt.id);
+          opt.scrollIntoView({ block: 'nearest' });
+        }
+      });
+    }
+
+    function choose(name) {
+      search.value = name;
+      hidden.value = name;
+      FU.clearInvalid(search);
+      openList(false);
+    }
+
+    function render(filter) {
+      var q = filter.trim().toLowerCase();
+      var matches = countries.filter(function (c) { return c.toLowerCase().indexOf(q) !== -1; });
+      dropdown.innerHTML = '';
+      active = -1;
+
+      if (!matches.length) {
+        var empty = document.createElement('li');
+        empty.className = 'no-result';
+        empty.textContent = 'No results found';
+        dropdown.appendChild(empty);
+        return;
+      }
+
+      matches.forEach(function (name, i) {
+        var li = document.createElement('li');
+        li.id = 'country-opt-' + i;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        li.textContent = name;
+        li.addEventListener('mousedown', function (e) { e.preventDefault(); choose(name); });
+        dropdown.appendChild(li);
+      });
+    }
+
+    search.addEventListener('focus', function () { render(search.value); openList(true); });
+    search.addEventListener('input', function () {
+      hidden.value = '';
+      render(search.value);
+      openList(true);
+    });
+    search.addEventListener('blur', function () { setTimeout(function () { openList(false); }, 150); });
+
+    search.addEventListener('keydown', function (e) {
+      var isOpen = dropdown.classList.contains('open');
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!isOpen) { render(search.value); openList(true); }
+        highlight(active + (e.key === 'ArrowDown' ? 1 : -1));
+      } else if (e.key === 'Enter' && isOpen) {
+        var current = dropdown.querySelector('li[aria-selected="true"]');
+        if (current) { e.preventDefault(); choose(current.textContent); }
+      } else if (e.key === 'Escape' && isOpen) {
+        openList(false);
+      }
+    });
+
+    /* ── Validation ── */
+    function validate() {
+      var ok = true;
+
+      [['fullName', function (v) { return !!v; }],
+       ['email',    FU.isEmail],
+       ['labelName', function (v) { return !!v; }],
+       ['labelVision', function (v) { return !!v; }],
+       ['whyLabel', function (v) { return !!v; }],
+       ['longTermGoal', function (v) { return !!v; }]
+      ].forEach(function (pair) {
+        var el = document.getElementById(pair[0]);
+        if (!pair[1](el.value.trim())) ok = FU.markInvalid(el) && ok;
+      });
+
+      if (!hidden.value) ok = FU.markInvalid(search) && ok;
+
+      // Both confirmations were previously never checked in JS, so the form
+      // could be submitted with neither box ticked.
+      var list = document.getElementById('checkList');
+      var confirmed = document.getElementById('confirmReview').checked &&
+                      document.getElementById('confirmAccurate').checked;
+      list.classList.toggle('invalid', !confirmed);
+      if (!confirmed) ok = false;
+
+      return ok;
+    }
+
+    document.getElementById('checkList').addEventListener('change', function () {
+      var confirmed = document.getElementById('confirmReview').checked &&
+                      document.getElementById('confirmAccurate').checked;
+      if (confirmed) this.classList.remove('invalid');
+    });
+
+    function resting() {
+      btn.disabled = false;
+      icon.classList.remove('i-spin');
+      label.textContent = 'Submit Application';
+    }
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
+      FU.clearStatus(status);
 
-      const btn = document.getElementById('submitBtn');
-      btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Submitting...';
+      if (document.getElementById('companyUrl').value) {
+        document.getElementById('successOverlay').classList.add('show');
+        return;
+      }
+
+      if (!validate()) {
+        FU.setStatus(status, 'error', 'Please complete the highlighted fields.');
+        var firstBad = form.querySelector('.field.invalid input, .field.invalid textarea, .check-list.invalid input');
+        if (firstBad) {
+          firstBad.focus();
+          firstBad.scrollIntoView({ block: 'center', behavior: FU.reduceMotion ? 'auto' : 'smooth' });
+        }
+        return;
+      }
+
+      if (!mailer) {
+        FU.setStatus(status, 'error', 'The form could not load. Please disable any blockers and reload, or reach us through the support page.');
+        return;
+      }
+
       btn.disabled = true;
+      icon.classList.add('i-spin');
+      label.textContent = 'Submitting…';
 
-      const params = {
-        fullName:     document.getElementById('fullName').value,
-        email:        document.getElementById('email').value,
-        country:      document.getElementById('country').value,
-        labelName:    document.getElementById('labelName').value,
-        labelStarted: document.querySelector('input[name="labelStarted"]:checked')?.value || 'Not answered',
-        labelVision:  document.getElementById('labelVision').value,
-        role:         document.querySelector('input[name="role"]:checked')?.value || 'Not answered',
-        hasReleases:  document.querySelector('input[name="hasReleases"]:checked')?.value || 'Not answered',
-        links:        document.getElementById('links').value || 'None provided',
-        whyLabel:     document.getElementById('whyLabel').value,
-        longTermGoal: document.getElementById('longTermGoal').value,
+      var params = {
+        fullName:     document.getElementById('fullName').value.trim(),
+        email:        document.getElementById('email').value.trim(),
+        country:      hidden.value,
+        labelName:    document.getElementById('labelName').value.trim(),
+        labelStarted: (document.querySelector('input[name="labelStarted"]:checked') || {}).value || 'Not answered',
+        labelVision:  document.getElementById('labelVision').value.trim(),
+        role:         (document.querySelector('input[name="role"]:checked') || {}).value || 'Not answered',
+        hasReleases:  (document.querySelector('input[name="hasReleases"]:checked') || {}).value || 'Not answered',
+        links:        linksInput.value.trim() || 'None provided',
+        whyLabel:     document.getElementById('whyLabel').value.trim(),
+        longTermGoal: document.getElementById('longTermGoal').value.trim()
       };
 
-        if (!params.fullName || !params.email || !params.country || !params.labelName) {
-    alert("Please complete all required fields.");
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
-    btn.disabled = false;
-    return;
-        }
-
-      emailjs.send('service_1nxlw2b', 'template_2to2ts6', params)
-        .then(() => {
+      mailer.send('service_1nxlw2b', 'template_2to2ts6', params)
+        .then(function () {
           document.getElementById('successOverlay').classList.add('show');
           document.body.style.overflow = 'hidden';
+          document.getElementById('successHome').focus();
         })
-        .catch(() => {
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
-          btn.disabled = false;
-          alert('Something went wrong. Please try again.');
+        .catch(function (err) {
+          console.error(err);
+          resting();
+          FU.setStatus(status, 'error', 'Something went wrong. Please try again, or reach us through the support page.');
         });
     });
-
-    // ── Country search ──
-    const countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua & Deps","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Rep","Chad","Chile","China","Colombia","Comoros","Congo","Congo {Democratic Rep}","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland {Republic}","Israel","Italy","Ivory Coast","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Korea North","Korea South","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar, {Burma}","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russian Federation","Rwanda","St Kitts & Nevis","St Lucia","Saint Vincent & the Grenadines","Samoa","San Marino","Sao Tome & Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];
-
-    const countrySearch   = document.getElementById('countrySearch');
-    const countryHidden   = document.getElementById('country');
-    const countryDropdown = document.getElementById('countryDropdown');
-
-    function renderCountries(filter) {
-      const q = filter.toLowerCase();
-      const matches = countries.filter(c => c.toLowerCase().includes(q));
-      countryDropdown.innerHTML = '';
-      if (matches.length === 0) {
-        countryDropdown.innerHTML = '<div class="no-result">No results found</div>';
-      } else {
-        matches.forEach(c => {
-          const div = document.createElement('div');
-          div.textContent = c;
-          div.addEventListener('mousedown', () => {
-            countrySearch.value = c;
-            countryHidden.value = c;
-            countryDropdown.classList.remove('open');
-          });
-          countryDropdown.appendChild(div);
-        });
-      }
-    }
-
-    countrySearch.addEventListener('focus', () => {
-      renderCountries(countrySearch.value);
-      countryDropdown.classList.add('open');
-    });
-    countrySearch.addEventListener('input', () => {
-      countryHidden.value = '';
-      renderCountries(countrySearch.value);
-      countryDropdown.classList.add('open');
-    });
-    countrySearch.addEventListener('blur', () => {
-      setTimeout(() => countryDropdown.classList.remove('open'), 150);
-    });
-
+  });
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function(){ emailjs.init('n0VPNf5P4M6yJN_iK'); })();
-  </script>
 </body>
 </html>

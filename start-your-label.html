@@ -3,152 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Start Your Label — FUNK UNIVERSE</title>
+  <meta name="theme-color" content="#060606" />
+
+  <title>Start Your Own Label — FUNK UNIVERSE</title>
+  <meta name="description" content="Label infrastructure, release systems and distribution for artists and collectives building their own independent record label. Access is reviewed before approval." />
+  <link rel="canonical" href="https://funkuniverserecords.com/start-your-label.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FUNK UNIVERSE" />
+  <meta property="og:title" content="Start Your Own Label — FUNK UNIVERSE" />
+  <meta property="og:description" content="Structured systems used by independent labels to release, manage and scale music professionally." />
+  <meta property="og:url" content="https://funkuniverserecords.com/start-your-label.html" />
+  <meta property="og:image" content="https://funkuniverserecords.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://funkuniverserecords.com/og-image.jpg" />
+
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/site.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:      #060606;
-      --surface: #0e0e0e;
-      --line:    rgba(255,255,255,0.07);
-      --silver:  #c8c8c8;
-      --white:   #f0ede8;
-      --muted:   #555;
-      --font-h:  'Barlow Condensed', sans-serif;
-      --font-b:  'Barlow', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-b);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      .cursor, .cursor-ring { display: block; }
-    }
-
-    .cursor {
-      display: none;
-      position: fixed;
-      width: 8px; height: 8px;
-      background: var(--white);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-      transition: width .2s, height .2s;
-    }
-    .cursor-ring {
-      display: none;
-      position: fixed;
-      width: 34px; height: 34px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: width .3s, height .3s, border-color .3s;
-    }
-    body:has(a:hover) .cursor-ring,
-    body:has(button:hover) .cursor-ring {
-      width: 54px; height: 54px;
-      border-color: rgba(255,255,255,0.7);
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 600;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: linear-gradient(to bottom, rgba(6,6,6,0.97) 60%, transparent);
-    }
-    .nav-wordmark {
-      font-family: var(--font-h);
-      font-weight: 700; font-size: 1rem;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--silver); text-decoration: none;
-    }
-    .nav-right { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-link {
-      font-family: var(--font-h);
-      font-weight: 400; font-size: 0.72rem;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none;
-      transition: color .2s;
-    }
-    .nav-link:hover { color: var(--white); }
-    .nav-cta {
-      font-family: var(--font-h);
-      font-weight: 600; font-size: 0.72rem;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--bg); background: var(--white);
-      padding: 0.55rem 1.4rem; border-radius: 2px;
-      text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-    .nav-cta:hover { background: #fff; transform: translateY(-1px); }
-    .nav-toggle {
-      display: none;
-      flex-direction: column; gap: 5px;
-      background: none; border: none;
-      cursor: pointer;
-      padding: 8px;
-      position: relative; z-index: 601;
-    }
-    @media (hover: hover) and (pointer: fine) { .nav-toggle { cursor: none; } }
-    .nav-toggle span {
-      display: block; width: 22px; height: 1.5px;
-      background: var(--white); transition: all .3s;
-    }
-    .drawer {
-      position: fixed; inset: 0;
-      background: var(--bg);
-      z-index: 590;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.5rem;
-      opacity: 0; pointer-events: none;
-      transition: opacity .4s;
-    }
-    .drawer.open { opacity: 1; pointer-events: all; }
-    .drawer a {
-      font-family: var(--font-h);
-      font-weight: 700;
-      font-size: clamp(2.8rem, 10vw, 5rem);
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--white); text-decoration: none;
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .4s, transform .4s, color .2s;
-    }
-    .drawer.open a { opacity: 1; transform: none; }
-    .drawer.open a:nth-child(1) { transition-delay: .05s; }
-    .drawer.open a:nth-child(2) { transition-delay: .10s; }
-    .drawer.open a:nth-child(3) { transition-delay: .15s; }
-    .drawer.open a:nth-child(4) { transition-delay: .20s; }
-    .drawer.open a:nth-child(5) { transition-delay: .25s; }
-    .drawer a:hover { color: var(--muted); }
-
     /* ── HERO ── */
     .page-hero {
       min-height: 100vh;
       min-height: 100svh;
       display: flex; flex-direction: column;
-      align-items: flex-start; justify-content: flex-end;
-      padding: 0 6rem 6rem;
+      align-items: flex-start; justify-content: center;
+      padding: 8rem 6rem 6rem;
       position: relative; overflow: hidden;
     }
     .page-hero::after {
@@ -167,7 +53,6 @@
       pointer-events: none; z-index: 1;
     }
 
-    /* big background number */
     .hero-bg-num {
       position: absolute;
       right: -0.05em; top: 50%;
@@ -194,7 +79,7 @@
     .hero-title {
       font-family: var(--font-h);
       font-weight: 700;
-      font-size: clamp(4rem, 9vw, 9rem);
+      font-size: clamp(3.2rem, 9vw, 9rem);
       line-height: .9; letter-spacing: .02em;
       text-transform: uppercase;
       color: var(--white);
@@ -204,29 +89,27 @@
     .hero-desc {
       font-size: .9rem; color: var(--muted);
       line-height: 1.75; max-width: 46ch;
-      margin-bottom: 2.4rem;
+      margin-bottom: 1.4rem;
       animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .35s both;
     }
+    .hero-desc.secondary { color: var(--muted-dim); margin-bottom: 2.4rem; }
+    .hero-cta { animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .45s both; display: inline-block; }
     .hero-note {
       font-family: var(--font-h);
       font-size: .6rem; letter-spacing: .25em;
-      text-transform: uppercase; color: var(--muted);
-      opacity: .5;
+      text-transform: uppercase; color: var(--muted-dim);
       margin-top: 1.4rem;
       animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .5s both;
     }
 
-    /* ── RULE ── */
-    .rule { width: 100%; height: 1px; background: var(--line); }
-
-    /* ── WHAT THIS IS ── */
+    /* ── TWO COLUMN ── */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       min-height: 50vh;
     }
     .col-left {
-      padding: 5rem 6rem 5rem 6rem;
+      padding: 5rem 6rem;
       border-right: 1px solid var(--line);
       display: flex; flex-direction: column; justify-content: center;
     }
@@ -235,8 +118,28 @@
       display: flex; flex-direction: column; justify-content: center;
       background: var(--surface);
     }
+    .section-title {
+      font-family: var(--font-h); font-weight: 700;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: .95; letter-spacing: .04em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 1.2rem;
+    }
+    .col-left .body-text + .body-text { margin-top: 1rem; }
 
-    /* ── WHO / WHAT YOU GET ── */
+    .dash-list { list-style: none; margin-top: .4rem; }
+    .dash-list li {
+      font-size: .88rem; color: var(--muted); line-height: 2;
+      display: flex; align-items: flex-start; gap: .8rem;
+    }
+    .dash-list li::before {
+      content: '—'; color: var(--muted-dim); flex-shrink: 0;
+    }
+    .col-note {
+      margin-top: 1.6rem; font-size: .8rem;
+      color: var(--muted-dim); line-height: 1.7;
+    }
+
+    /* ── THREE COLUMN ── */
     .three-col {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -264,9 +167,10 @@
       color: var(--muted); margin-bottom: 2rem;
     }
     .block-icon {
-      font-size: 1.2rem; color: var(--silver); margin-bottom: 1.2rem;
+      color: var(--silver); margin-bottom: 1.2rem;
       transition: transform .3s cubic-bezier(.16,1,.3,1);
     }
+    .block-icon .i { width: 1.4rem; height: 1.4rem; }
     .info-block:hover .block-icon { transform: scale(1.15); }
     .info-block h3 {
       font-family: var(--font-h);
@@ -274,25 +178,9 @@
       letter-spacing: .08em; text-transform: uppercase;
       color: var(--white); margin-bottom: .6rem;
     }
-    .info-block p {
-      font-size: .86rem; color: var(--muted); line-height: 1.7;
-    }
-    .info-block ul {
-      list-style: none; margin-top: .4rem;
-    }
-    .info-block ul li {
-      font-size: .86rem; color: var(--muted); line-height: 2;
-      display: flex; align-items: flex-start; gap: .6rem;
-    }
-    .info-block ul li::before {
-      content: '—';
-      color: var(--muted);
-      opacity: .4;
-      flex-shrink: 0;
-      margin-top: 0.05em;
-    }
+    .info-block p { font-size: .86rem; color: var(--muted); line-height: 1.7; }
 
-    /* ── CTA SECTION ── */
+    /* ── CTA ── */
     .cta-section {
       padding: 7rem 6rem;
       display: flex; flex-direction: column; align-items: center;
@@ -306,17 +194,11 @@
       pointer-events: none;
     }
     .cta-section .big-text {
-      font-family: var(--font-h);
-      font-weight: 700;
       font-size: clamp(3rem, 6vw, 6rem);
-      line-height: .95; letter-spacing: .03em;
-      text-transform: uppercase;
-      color: var(--white); margin-bottom: 1.2rem;
       position: relative; z-index: 1;
+      margin-bottom: 1.2rem;
     }
     .cta-section .body-text {
-      font-size: .88rem; color: var(--muted);
-      line-height: 1.75; max-width: 44ch;
       position: relative; z-index: 1;
       margin-bottom: 2.6rem;
     }
@@ -329,164 +211,77 @@
       margin-top: 2rem;
       font-family: var(--font-h);
       font-size: .6rem; letter-spacing: .25em;
-      text-transform: uppercase; color: var(--muted);
-      opacity: .45;
+      text-transform: uppercase; color: var(--muted-dim);
       position: relative; z-index: 1;
-    }
-
-    /* ── BUTTONS ── */
-    .btn {
-      display: inline-flex; align-items: center; gap: .7rem;
-      font-family: var(--font-h);
-      font-weight: 600; font-size: .78rem;
-      letter-spacing: .22em; text-transform: uppercase;
-      text-decoration: none; color: var(--bg);
-      background: var(--white);
-      padding: 1rem 2.4rem;
-      border-radius: 2px; border: none; cursor: pointer;
-      transition: background .25s, transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s;
-    }
-    @media (hover: hover) and (pointer: fine) { .btn { cursor: none; } }
-    .btn:hover {
-      background: #fff; transform: translateY(-3px);
-      box-shadow: 0 16px 48px rgba(255,255,255,.11);
-    }
-    .btn-ghost {
-      background: transparent; color: var(--white);
-      border: 1px solid var(--line);
-    }
-    .btn-ghost:hover {
-      background: transparent; border-color: rgba(255,255,255,.28); box-shadow: none;
-    }
-
-    /* eyebrow / shared text */
-    .eyebrow {
-      font-family: var(--font-h); font-weight: 400; font-size: .66rem;
-      letter-spacing: .3em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 1.4rem;
-    }
-    .section-title {
-      font-family: var(--font-h); font-weight: 700;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      line-height: .95; letter-spacing: .04em;
-      text-transform: uppercase; color: var(--white); margin-bottom: 1.2rem;
-    }
-    .body-text {
-      font-size: .88rem; color: var(--muted); line-height: 1.75; max-width: 44ch;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 2.5rem 3rem;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo {
-      width: 80px;
-      filter: brightness(.4) contrast(1.2);
-      mix-blend-mode: screen;
-    }
-    footer p {
-      font-family: var(--font-h); font-size: .62rem;
-      letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
-    }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a {
-      font-family: var(--font-h); font-size: .62rem;
-      letter-spacing: .2em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; transition: color .2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-
-    /* ── REVEAL ── */
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
-      will-change: opacity, transform;
-    }
-    .reveal.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: .1s; }
-    .d2 { transition-delay: .2s; }
-    .d3 { transition-delay: .3s; }
-    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: none; }
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.8rem; }
-      .nav-link, .nav-cta { display: none; }
-      .nav-toggle { display: flex; }
-
-      .page-hero { padding: 0 2rem 4rem; }
+      .page-hero { padding: 7rem 1.5rem 4rem; }
       .hero-bg-num { display: none; }
 
       .two-col { grid-template-columns: 1fr; }
-      .col-left { padding: 4rem 2rem; border-right: none; border-bottom: 1px solid var(--line); }
-      .col-right { padding: 4rem 2rem; }
+      .col-left { padding: 4rem 1.5rem; border-right: none; border-bottom: 1px solid var(--line); }
+      .col-right { padding: 4rem 1.5rem; }
 
       .three-col { grid-template-columns: 1fr; }
-      .info-block { border-right: none; border-bottom: 1px solid var(--line); padding: 3rem 2rem; }
+      .info-block { border-right: none; border-bottom: 1px solid var(--line); padding: 3rem 1.5rem; }
       .info-block:last-child { border-bottom: none; }
 
-      .cta-section { padding: 5rem 2rem; }
-
-      footer { padding: 2rem 1.5rem; }
-      .footer-links { display: none; }
+      .cta-section { padding: 5rem 1.5rem; }
     }
     @media (max-width: 480px) {
-      .cta-actions { flex-direction: column; }
-      .btn { justify-content: center; }
+      .cta-actions { flex-direction: column; width: 100%; }
+      .hero-cta { display: block; }
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cring"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav>
+  <nav aria-label="Primary">
     <a href="index.html" class="nav-wordmark">Funk Universe</a>
     <div class="nav-right">
       <a href="index.html#features" class="nav-link">Services</a>
       <a href="index.html#legal" class="nav-link">Legal</a>
-      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link">Playlist</a>
-      <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
+      <a href="start-your-label.html" class="nav-link">Start Your Label</a>
       <a href="support.html" class="nav-link">Support</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" class="nav-link" target="_blank" rel="noopener">Playlist</a>
+      <a href="submit-demo.html" class="nav-cta">Submit Demo</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
   <!-- DRAWER -->
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <a href="index.html" onclick="closeDrawer()">Home</a>
-    <a href="index.html#features" onclick="closeDrawer()">Services</a>
-    <a href="index.html#legal" onclick="closeDrawer()">Legal</a>
-    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB">Playlist</a>
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Services</a>
+    <a href="index.html#legal">Legal</a>
+    <a href="start-your-label.html">Start Your Label</a>
+    <a href="support.html">Support</a>
+    <a href="https://open.spotify.com/playlist/2JpeRqK5cDngXj25w4k9oB" target="_blank" rel="noopener">Playlist</a>
     <a href="submit-demo.html">Submit Demo</a>
-    <a href="support.html" onclick="closeDrawer()">Support</a>
   </div>
 
   <!-- HERO -->
   <header class="page-hero">
-    <div class="hero-bg-num">01</div>
+    <div class="hero-bg-num" aria-hidden="true">01</div>
     <div class="hero-content">
       <p class="hero-eyebrow">Funk Universe — Infrastructure</p>
       <h1 class="hero-title">Start Your<br>Own Label</h1>
       <p class="hero-desc">Built for serious individuals looking to launch and operate independent record labels using structured systems.</p>
-      <p class="hero-desc" style="margin-top:-1rem; opacity:.7;">
-Not a public service — access is granted selectively.
-      </p>
-      <div style="animation: fadeUp 1.4s cubic-bezier(.16,1,.3,1) .45s both; display:inline-block;">
+      <p class="hero-desc secondary">Not a public service — access is granted selectively.</p>
+      <div class="hero-cta">
         <a href="label-application.html" class="btn">
-          <i class="fas fa-arrow-right"></i> Apply for Access
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          Apply for Access
         </a>
       </div>
       <p class="hero-note">Limited access only — not a general service</p>
@@ -495,131 +290,92 @@ Not a public service — access is granted selectively.
 
   <div class="rule"></div>
 
-  <!-- WHAT THIS IS / WHO THIS IS FOR -->
-  <section class="two-col">
-    <div class="col-left">
-      <p class="eyebrow reveal">Overview</p>
-      <h2 class="section-title reveal d1">What<br>This Is</h2>
-      <p class="body-text reveal d2">This is not a basic guide or free support.</p>
-      <p class="body-text reveal d2" style="margin-top:1rem;">We provide access to structured systems and workflows used by independent labels to release, manage, and scale music professionally.</p>
-    </div>
-    <div class="col-right">
-      <p class="eyebrow reveal">Criteria</p>
-      <h2 class="section-title reveal d1">Who This<br>Is For</h2>
-      <ul class="reveal d2" style="list-style:none; margin-top:.4rem;">
-        <li style="display:flex;align-items:flex-start;gap:.8rem;font-size:.88rem;color:var(--muted);line-height:2;">
-          <span style="color:var(--muted);opacity:.4;flex-shrink:0;">—</span> Artists building their own label
-        </li>
-        <li style="display:flex;align-items:flex-start;gap:.8rem;font-size:.88rem;color:var(--muted);line-height:2;">
-          <span style="color:var(--muted);opacity:.4;flex-shrink:0;">—</span> Collectives &amp; music groups
-        </li>
-        <li style="display:flex;align-items:flex-start;gap:.8rem;font-size:.88rem;color:var(--muted);line-height:2;">
-          <span style="color:var(--muted);opacity:.4;flex-shrink:0;">—</span> Individuals serious about long-term label growth
-        </li>
-      </ul>
-      <p class="body-text reveal d3" style="margin-top:1.6rem; font-size:.8rem; opacity:.5;">Not intended for casual or experimental use.</p>
-    </div>
-  </section>
+  <main id="main">
 
-  <div class="rule"></div>
+    <!-- WHAT THIS IS / WHO THIS IS FOR -->
+    <section class="two-col" aria-label="Overview and criteria">
+      <div class="col-left">
+        <p class="eyebrow reveal">Overview</p>
+        <h2 class="section-title reveal d1">What<br>This Is</h2>
+        <p class="body-text reveal d2">This is not a basic guide or free support.</p>
+        <p class="body-text reveal d2">We provide access to structured systems and workflows used by independent labels to release, manage, and scale music professionally.</p>
+      </div>
+      <div class="col-right">
+        <p class="eyebrow reveal">Criteria</p>
+        <h2 class="section-title reveal d1">Who This<br>Is For</h2>
+        <ul class="dash-list reveal d2">
+          <li>Artists building their own label</li>
+          <li>Collectives &amp; music groups</li>
+          <li>Individuals serious about long-term label growth</li>
+        </ul>
+        <p class="col-note reveal d3">Not intended for casual or experimental use.</p>
+      </div>
+    </section>
 
-  <!-- WHAT YOU GET -->
-  <section class="three-col">
-    <div class="info-block reveal">
-      <div class="block-num">01</div>
-      <div class="block-icon"><i class="fas fa-layer-group"></i></div>
-      <h3>Infrastructure</h3>
-      <p>Access to professional label infrastructure used by independent labels at scale.</p>
-    </div>
-    <div class="info-block reveal d1">
-      <div class="block-num">02</div>
-      <div class="block-icon"><i class="fas fa-compact-disc"></i></div>
-      <h3>Release Systems</h3>
-      <p>Structured release and catalog management workflows built around industry tools.</p>
-    </div>
-    <div class="info-block reveal d2">
-      <div class="block-num">03</div>
-      <div class="block-icon"><i class="fas fa-paper-plane"></i></div>
-      <h3>Distribution</h3>
-      <p>Reliable delivery to all major streaming platforms with proper rights handling.</p>
-    </div>
-  </section>
+    <div class="rule"></div>
 
-  <div class="rule"></div>
+    <!-- WHAT YOU GET -->
+    <section class="three-col" aria-label="What you get">
+      <div class="info-block reveal">
+        <div class="block-num">01</div>
+        <div class="block-icon">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></svg>
+        </div>
+        <h3>Infrastructure</h3>
+        <p>Access to professional label infrastructure used by independent labels at scale.</p>
+      </div>
+      <div class="info-block reveal d1">
+        <div class="block-num">02</div>
+        <div class="block-icon">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3a9 9 0 0 1 6.36 2.64"/></svg>
+        </div>
+        <h3>Release Systems</h3>
+        <p>Structured release and catalog management workflows built around industry tools.</p>
+      </div>
+      <div class="info-block reveal d2">
+        <div class="block-num">03</div>
+        <div class="block-icon">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 3 10.5 13.5M21 3l-6.5 18-4-8-8-4L21 3Z"/></svg>
+        </div>
+        <h3>Distribution</h3>
+        <p>Reliable delivery to all major streaming platforms with proper rights handling.</p>
+      </div>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <p class="eyebrow reveal">Next Step</p>
-    <h2 class="big-text reveal d1">Get Started</h2>
-    <p class="body-text reveal d2">If you're serious about building your own label, proceed below. We review submissions selectively — not all requests are approved.</p>
-    <div class="cta-actions reveal d3">
-      <a href="label-application.html" class="btn"><i class="fas fa-arrow-right"></i> Proceed to Setup</a>
-      <a href="index.html" class="btn btn-ghost">Back to Home</a>
-    </div>
-    <p class="cta-footnote reveal">Application required — access is reviewed before approval</p>
-  </section>
+    <div class="rule"></div>
 
-  <!-- FOOTER -->
+    <!-- CTA -->
+    <section class="cta-section" aria-label="Next step">
+      <p class="eyebrow reveal">Next Step</p>
+      <h2 class="big-text reveal d1">Get Started</h2>
+      <p class="body-text reveal d2">If you're serious about building your own label, proceed below. We review submissions selectively — not all requests are approved.</p>
+      <div class="cta-actions reveal d3">
+        <a href="label-application.html" class="btn">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+          Proceed to Setup
+        </a>
+        <a href="index.html" class="btn btn-ghost">Back to Home</a>
+      </div>
+      <p class="cta-footnote reveal">Application required — access is reviewed before approval</p>
+    </section>
+
+  </main>
+
   <footer>
-    <img src="logo.png" alt="FUNK UNIVERSE" class="footer-logo" />
+    <a href="index.html" aria-label="Funk Universe — home">
+      <img src="logo-160.png" alt="FUNK UNIVERSE" class="footer-logo" width="160" height="160" loading="lazy" decoding="async" />
+    </a>
     <p>&copy; 2026 FUNK UNIVERSE. All rights reserved.</p>
     <ul class="footer-links">
       <li><a href="index.html#features">Services</a></li>
       <li><a href="index.html#legal">Legal</a></li>
       <li><a href="submit-demo.html">Submit Demo</a></li>
+      <li><a href="support.html">Support</a></li>
     </ul>
   </footer>
 
-  <script>
-    const isPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (isPointer) {
-      const cur = document.getElementById('cursor');
-      const crg = document.getElementById('cring');
-      if (cur && crg) {
-        cur.style.display = 'block'; crg.style.display = 'block';
-        let mx=0,my=0,rx=0,ry=0;
-        document.addEventListener('mousemove', e => {
-          mx=e.clientX; my=e.clientY;
-          cur.style.left=mx+'px'; cur.style.top=my+'px';
-        });
-        (function loop(){
-          rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-          crg.style.left=rx+'px'; crg.style.top=ry+'px';
-          requestAnimationFrame(loop);
-        })();
-      }
-    }
+  <script src="assets/site.js" defer></script>
+  <script src="cookie.js" defer></script>
 
-    const drawer  = document.getElementById('drawer');
-    const toggler = document.getElementById('navToggle');
-    function openDrawer() {
-      drawer.classList.add('open');
-      toggler.setAttribute('aria-expanded', 'true');
-      toggler.children[0].style.transform = 'rotate(45deg) translate(5px,5px)';
-      toggler.children[1].style.opacity   = '0';
-      toggler.children[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeDrawer() {
-      drawer.classList.remove('open');
-      toggler.setAttribute('aria-expanded', 'false');
-      toggler.children[0].style.transform = '';
-      toggler.children[1].style.opacity   = '1';
-      toggler.children[2].style.transform = '';
-      document.body.style.overflow = '';
-    }
-    toggler.addEventListener('click', () => {
-      drawer.classList.contains('open') ? closeDrawer() : openDrawer();
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
-    });
-
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    setTimeout(() => { document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')); }, 2000);
-  </script>
 </body>
 </html>
